@@ -15,7 +15,6 @@ const Product = ({navigation}) => {
   const {data, error, loading} = useFetch(API_URL);
   const [isSearchVisible, setSearchVisible] = useState(false);
 
-  console.log(data);
   const handleProductselect = _id => {
     navigation.navigate('ProductDetailScreen', {_id});
   };

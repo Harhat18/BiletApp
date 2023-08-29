@@ -34,9 +34,15 @@ export default StyleSheet.create({
   price: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: 'blue',
+    color: 'black',
     marginBottom: 20,
     textAlign: 'center',
     justifyContent: 'center',
   },
+  mapContainer: {
+    flex: 1,
+    height: deviceSize.height / 3,
+    width: deviceSize.width - 10,
+  },
+  map: {flex: 1},
 });
