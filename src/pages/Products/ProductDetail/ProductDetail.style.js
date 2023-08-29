@@ -3,10 +3,7 @@ const deviceSize = Dimensions.get('window');
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#d3d3d3',
-    margin: 10,
-    borderWidth: 1,
-    borderRadius: 10,
+    margin: 5,
   },
   image: {
     height: deviceSize.height / 3,

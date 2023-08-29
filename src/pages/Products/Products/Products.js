@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unstable-nested-components */
-import {FlatList, TextInput, View} from 'react-native';
-import React, {useLayoutEffect} from 'react';
+import {FlatList, View} from 'react-native';
+import React, {useLayoutEffect, useState} from 'react';
 import styles from './Products.style';
 import ProductCart from '../../../component/ProductCart/ProductCart';
 import useFetch from '../../../hooks/useFetch/useFetch';
@@ -13,7 +13,9 @@ import SearchBar from '../../../component/SearchBar/SearchBar';
 
 const Product = ({navigation}) => {
   const {data, error, loading} = useFetch(API_URL);
+  const [isSearchVisible, setSearchVisible] = useState(false);
 
+  console.log(data);
   const handleProductselect = _id => {
     navigation.navigate('ProductDetailScreen', {_id});
   };
@@ -22,7 +24,7 @@ const Product = ({navigation}) => {
     <ProductCart data={item} onSelect={() => handleProductselect(item._id)} />
   );
   function headerButtonPressHandler() {
-    console.log('Pressed!');
+    setSearchVisible(!isSearchVisible);
   }
 
   useLayoutEffect(() => {
@@ -51,7 +53,8 @@ const Product = ({navigation}) => {
   }
   return (
     <View style={styles.container}>
-      <SearchBar />
+      {isSearchVisible && <SearchBar />}
+
       <FlatList
         keyExtractor={item => item._id}
         data={data}

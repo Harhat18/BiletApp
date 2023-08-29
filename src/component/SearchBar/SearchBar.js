@@ -1,15 +1,25 @@
-import {View, Text, TextInput, StyleSheet} from 'react-native';
+import {StyleSheet, View, TextInput} from 'react-native';
 import React from 'react';
+import IconButton from '../IconButton/IconButton';
 
-const SearchBar = () => {
+export default function SearchBar() {
   return (
-    <View>
-      <Text>aaa</Text>
+    <View style={styles.backgroundStyle}>
+      <IconButton
+        name={'magnify'}
+        color={'white'}
+        size={26}
+        style={styles.iconStyle}
+      />
+      <TextInput
+        style={styles.inputStyle}
+        placeholder="Ara"
+        autoCorrect={false}
+        autoCapitalize="none"
+      />
     </View>
   );
-};
-
-export default SearchBar;
+}
 
 const styles = StyleSheet.create({
   backgroundStyle: {
@@ -19,6 +29,7 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: 'center',
     borderRadius: 20,
+    paddingHorizontal: 10,
   },
   iconStyle: {
     marginHorizontal: 15,
