@@ -1,42 +1,21 @@
 import React, {useRef, useState, useEffect} from 'react';
 import Carousel, {ParallaxImage} from 'react-native-snap-carousel';
-import {
-  View,
-  Text,
-  Dimensions,
-  StyleSheet,
-  TouchableOpacity,
-  Platform,
-} from 'react-native';
+import {View, Dimensions, StyleSheet, Platform} from 'react-native';
 
-const data = [
-  {
-    images:
-      'https://cdn.bubilet.com.tr/files/Etkinlik/mary-jane-konseri-26226.jpg',
-  },
-  {
-    images:
-      'https://img3.aksam.com.tr/imgsdisk/2020/10/30/t25_mary-jane-adli-muzik-grub-138.jpg',
-  },
-  {
-    images: 'https://i.ytimg.com/vi/sdEuwKbnflM/maxresdefault.jpg',
-  },
-];
 const {width: screenWidth} = Dimensions.get('window');
 
-const DetailCarousel = props => {
+const DetailCarousel = ({data}) => {
   const [entries, setEntries] = useState([]);
   const carouselRef = useRef(null);
 
   useEffect(() => {
-    setEntries(data);
-  }, []);
-
+    setEntries(data.images);
+  }, [data]);
   const renderItem = ({item, index}, parallaxProps) => {
     return (
       <View style={styles.item}>
         <ParallaxImage
-          source={{uri: item.images}}
+          source={{uri: item}}
           containerStyle={styles.imageContainer}
           style={styles.image}
           parallaxFactor={0.4}
@@ -77,11 +56,10 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     flex: 1,
-    marginBottom: Platform.select({ios: 0, android: 1}),
+    marginBottom: Platform.select({ios: 5, android: 6}),
     marginTop: 10,
     backgroundColor: 'white',
     borderRadius: 8,
-    resizeMode: 'stretch',
   },
   image: {
     ...StyleSheet.absoluteFillObject,

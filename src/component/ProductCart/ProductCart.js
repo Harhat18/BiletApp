@@ -13,7 +13,7 @@ const ProductCart = ({data, onSelect}) => {
           <View style={styles.categoryContainer}>
             <Text style={styles.categoryText}>{data.category}</Text>
           </View>
-          <Image source={{uri: data.image}} style={styles.image} />
+          <Image source={{uri: data.images[0]}} style={styles.image} />
         </View>
         <View style={styles.info_container}>
           <Text style={styles.place}>{data.place}</Text>

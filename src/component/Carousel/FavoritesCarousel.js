@@ -1,15 +1,8 @@
 import React, {useRef, useState, useEffect} from 'react';
 import Carousel, {ParallaxImage} from 'react-native-snap-carousel';
-import {
-  View,
-  Text,
-  Dimensions,
-  StyleSheet,
-  TouchableOpacity,
-  Platform,
-} from 'react-native';
+import {View, Text, Dimensions, StyleSheet, Platform} from 'react-native';
 
-const ENTRIES1 = [
+const ENTRIES = [
   {
     title: 'Beautiful and dramatic Antelope Canyon',
     subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
@@ -39,7 +32,7 @@ const FavoritesCarousel = props => {
   };
 
   useEffect(() => {
-    setEntries(ENTRIES1);
+    setEntries(ENTRIES);
   }, []);
 
   const renderItem = ({item, index}, parallaxProps) => {

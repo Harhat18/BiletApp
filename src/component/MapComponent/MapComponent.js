@@ -1,31 +1,28 @@
 import {View} from 'react-native';
 import React from 'react';
 import styles from './MapComponent.style';
-import MapView, {Marker} from 'react-native-maps';
-import {API_URL} from '@env';
-import useFetch from '../../hooks/useFetch/useFetch';
+import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 
-const MapComponent = ({route}) => {
-  const {_id} = route.params;
-  const {data} = useFetch(`${API_URL}/${_id}`);
-
+const MapComponent = ({place, lat, lng, adress}) => {
+  console.log(lat);
   return (
     <View style={styles.mapContainer}>
       <MapView
         style={styles.map}
+        provider={PROVIDER_GOOGLE}
         initialRegion={{
-          latitude: data?.lat,
-          longitude: data?.lng,
-          latitudeDelta: 0.1,
-          longitudeDelta: 0.1,
+          latitude: lat,
+          longitude: lng,
+          latitudeDelta: 0.005,
+          longitudeDelta: 0.005,
         }}>
         <Marker
           coordinate={{
-            latitude: data?.lat,
-            longitude: data?.lng,
+            latitude: lat,
+            longitude: lng,
           }}
-          title={data?.place}
-          description={data?.adress}
+          title={place}
+          description={adress}
         />
       </MapView>
     </View>

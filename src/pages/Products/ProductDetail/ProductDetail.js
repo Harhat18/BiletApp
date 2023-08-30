@@ -1,12 +1,12 @@
-import {View, Text, Image, ScrollView} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import React from 'react';
 import styles from './ProductDetail.style';
 import {API_URL} from '@env';
 import useFetch from '../../../hooks/useFetch/useFetch';
 import Error from '../../../component/Error/Error';
 import Loading from '../../../component/Loading/Loading';
-import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import DetailCarousel from '../../../component/Carousel/DetailCarousel';
+import MapComponent from '../../../component/MapComponent/MapComponent';
 
 const ProductDetail = ({route}) => {
   const {_id} = route.params;
@@ -25,33 +25,20 @@ const ProductDetail = ({route}) => {
     <ScrollView>
       <View style={styles.container}>
         <View style={{flex: 1}}>
-          <DetailCarousel />
+          <DetailCarousel data={data} />
         </View>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.place}>{place}</Text>
         <Text style={styles.desc}>{description}</Text>
         <Text style={styles.price}>{price} TL</Text>
       </View>
-      <View style={styles.mapContainer}>
-        <MapView
-          provider={PROVIDER_GOOGLE}
-          style={styles.map}
-          initialRegion={{
-            latitude: lat,
-            longitude: lng,
-            latitudeDelta: 0.005,
-            longitudeDelta: 0.005,
-          }}>
-          <Marker
-            coordinate={{
-              latitude: lat,
-              longitude: lng,
-            }}
-            title={place}
-            description={adress}
-          />
-        </MapView>
-      </View>
+      <MapComponent
+        route={route}
+        lat={lat}
+        lng={lng}
+        adress={adress}
+        place={place}
+      />
     </ScrollView>
   );
 };

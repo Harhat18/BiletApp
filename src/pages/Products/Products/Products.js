@@ -54,7 +54,7 @@ const Product = ({navigation}) => {
     return <Loading />;
   }
   return (
-    <ScrollView>
+    <ScrollView style={{flex: 1}}>
       <View style={{flex: 1}}>
         {isCarouselVisible && (
           <View style={{flex: 1}}>
