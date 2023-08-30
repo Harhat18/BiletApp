@@ -9,54 +9,39 @@ import {
   Platform,
 } from 'react-native';
 
-const ENTRIES1 = [
+const data = [
   {
-    title: 'Beautiful and dramatic Antelope Canyon',
-    subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-    illustration:
+    images:
       'https://cdn.bubilet.com.tr/files/Etkinlik/mary-jane-konseri-26226.jpg',
   },
   {
-    title: 'Earlier this morning, NYC',
-    subtitle: 'Lorem ipsum dolor sit amet',
-    illustration:
+    images:
       'https://img3.aksam.com.tr/imgsdisk/2020/10/30/t25_mary-jane-adli-muzik-grub-138.jpg',
   },
   {
-    title: 'White Pocket Sunset',
-    subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
-    illustration: 'https://i.ytimg.com/vi/sdEuwKbnflM/maxresdefault.jpg',
+    images: 'https://i.ytimg.com/vi/sdEuwKbnflM/maxresdefault.jpg',
   },
 ];
 const {width: screenWidth} = Dimensions.get('window');
 
-const FavoritesCarousel = props => {
+const DetailCarousel = props => {
   const [entries, setEntries] = useState([]);
   const carouselRef = useRef(null);
 
-  const goForward = () => {
-    carouselRef.current.snapToNext();
-  };
-
   useEffect(() => {
-    setEntries(ENTRIES1);
+    setEntries(data);
   }, []);
 
   const renderItem = ({item, index}, parallaxProps) => {
     return (
       <View style={styles.item}>
         <ParallaxImage
-          source={{uri: item.illustration}}
+          source={{uri: item.images}}
           containerStyle={styles.imageContainer}
           style={styles.image}
           parallaxFactor={0.4}
           {...parallaxProps}
         />
-        <View style={styles.titleContainer}>
-          <Text style={styles.title} numberOfLines={1}>
-            {item.title}
-          </Text>
-        </View>
       </View>
     );
   };
@@ -67,7 +52,7 @@ const FavoritesCarousel = props => {
         ref={carouselRef}
         sliderWidth={screenWidth}
         sliderHeight={screenWidth}
-        itemWidth={screenWidth - 60}
+        itemWidth={screenWidth - 20}
         data={entries}
         renderItem={renderItem}
         hasParallaxImages={true}
@@ -80,16 +65,15 @@ const FavoritesCarousel = props => {
   );
 };
 
-export default FavoritesCarousel;
+export default DetailCarousel;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#c2c2c2',
   },
   item: {
-    width: screenWidth - 60,
-    height: 178,
+    width: screenWidth - 30,
+    height: 250,
   },
   imageContainer: {
     flex: 1,
@@ -97,10 +81,11 @@ const styles = StyleSheet.create({
     marginTop: 10,
     backgroundColor: 'white',
     borderRadius: 8,
+    resizeMode: 'stretch',
   },
   image: {
     ...StyleSheet.absoluteFillObject,
-    resizeMode: 'cover',
+    resizeMode: 'center',
   },
   titleContainer: {
     position: 'absolute',

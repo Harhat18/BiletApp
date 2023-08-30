@@ -21,7 +21,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     color: 'white',
     fontSize: 15,
-    fontFamily: 'MontserratBold',
   },
   image_container: {alignContent: 'center'},
   image: {
@@ -50,7 +49,6 @@ export default StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     paddingTop: 10,
-    fontFamily: 'MontserratRegular',
   },
   categoryContainer: {
     position: 'absolute',

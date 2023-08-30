@@ -6,6 +6,7 @@ import useFetch from '../../../hooks/useFetch/useFetch';
 import Error from '../../../component/Error/Error';
 import Loading from '../../../component/Loading/Loading';
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
+import DetailCarousel from '../../../component/Carousel/DetailCarousel';
 
 const ProductDetail = ({route}) => {
   const {_id} = route.params;
@@ -23,7 +24,9 @@ const ProductDetail = ({route}) => {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Image source={{uri: data.image}} style={styles.image} />
+        <View style={{flex: 1}}>
+          <DetailCarousel />
+        </View>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.place}>{place}</Text>
         <Text style={styles.desc}>{description}</Text>
