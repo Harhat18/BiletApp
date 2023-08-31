@@ -4,12 +4,15 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
+import Product from './pages/Products/Products/Products';
 import ProductDetail from './pages/Products/ProductDetail/ProductDetail';
 import Profile from './pages/Profile/Profile/Profile';
 import ProfileEdit from './pages/Profile/ProfileEdit/ProfileEdit';
-import IconComponent from './component/IconComponents/IconComponents';
 
-import Product from './pages/Products/Products/Products';
+import IconComponent from './component/IconComponents/IconComponents';
+import SearchScreen from './pages/Products/SearchScreen/SearchScreen';
+import {Provider} from 'react-redux';
+import {store} from './redux/store';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -38,6 +41,17 @@ const ProductStack = () => {
           headerTintColor: '#fff',
         }}
       />
+      <Stack.Screen
+        name="SearchScreen"
+        component={SearchScreen}
+        options={{
+          title: 'BiletApp',
+          headerStyle: {backgroundColor: '#2f4f4f'},
+          headerTitleStyle: {color: '#fff', fontSize: 20},
+          headerTitleAlign: 'center',
+          headerTintColor: '#fff',
+        }}
+      />
     </Stack.Navigator>
   );
 };
@@ -53,28 +67,30 @@ const ProfileStack = () => {
 const App = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen
-          name="Ticket"
-          component={ProductStack}
-          options={{
-            headerShown: false,
-            tabBarIcon: ({color, size}) => (
-              <IconComponent name={'ticket'} color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Profile"
-          component={ProfileStack}
-          options={{
-            headerShown: false,
-            tabBarIcon: ({color, size}) => (
-              <IconComponent name={'account'} color={color} size={size} />
-            ),
-          }}
-        />
-      </Tab.Navigator>
+      <Provider store={store}>
+        <Tab.Navigator>
+          <Tab.Screen
+            name="Ticket"
+            component={ProductStack}
+            options={{
+              headerShown: false,
+              tabBarIcon: ({color, size}) => (
+                <IconComponent name={'music'} color={color} size={size} />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Profile"
+            component={ProfileStack}
+            options={{
+              headerShown: false,
+              tabBarIcon: ({color, size}) => (
+                <IconComponent name={'account'} color={color} size={size} />
+              ),
+            }}
+          />
+        </Tab.Navigator>
+      </Provider>
     </NavigationContainer>
   );
 };

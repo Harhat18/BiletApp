@@ -4,7 +4,6 @@ import styles from './MapComponent.style';
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 
 const MapComponent = ({place, lat, lng, adress}) => {
-  console.log(lat);
   return (
     <View style={styles.mapContainer}>
       <MapView
