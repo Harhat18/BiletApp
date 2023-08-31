@@ -53,7 +53,7 @@ const Product = ({navigation}) => {
     <ScrollView>
       <View style={{flex: 1}}>
         <View style={{flex: 1}}>
-          <FavoritesCarousel />
+          <FavoritesCarousel navigation={navigation} />
         </View>
         <View style={styles.container}>
           <FlatList

@@ -55,7 +55,7 @@ export default StyleSheet.create({
     top: 0,
     left: 0,
     backgroundColor: '#696969',
-    padding: 8,
+    padding: 5,
     zIndex: 1,
     margin: 5,
     marginTop: 5,

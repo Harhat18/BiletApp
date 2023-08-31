@@ -3,6 +3,20 @@ import React from 'react';
 import styles from './ProductCart.style';
 
 const ProductCart = ({data, onSelect}) => {
+  let categoryBackgroundColor = '#696969'; // Varsayılan renk
+
+  if (data.category === 'Tiyatro') {
+    categoryBackgroundColor = '#FFD700'; // Sarı rengin kodu
+  } else if (data.category === 'Stand Up') {
+    categoryBackgroundColor = '#1E90FF'; // Mavi rengin kodu
+  } else if (data.category === 'Festival') {
+    categoryBackgroundColor = '#FF0000'; // Kırmızı rengin kodu
+  }
+  const dynamicCategoryContainerStyle = {
+    ...styles.categoryContainer,
+    backgroundColor: categoryBackgroundColor,
+  };
+
   return (
     <Pressable onPress={onSelect}>
       <View style={styles.container}>
@@ -10,7 +24,7 @@ const ProductCart = ({data, onSelect}) => {
           <Text style={styles.title}>{data.title.toUpperCase()}</Text>
         </View>
         <View style={styles.image_container}>
-          <View style={styles.categoryContainer}>
+          <View style={dynamicCategoryContainerStyle}>
             <Text style={styles.categoryText}>{data.category}</Text>
           </View>
           <Image source={{uri: data.images[0]}} style={styles.image} />

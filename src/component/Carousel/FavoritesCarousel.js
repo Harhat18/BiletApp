@@ -1,52 +1,47 @@
 import React, {useRef, useState, useEffect} from 'react';
 import Carousel, {ParallaxImage} from 'react-native-snap-carousel';
-import {View, Text, Dimensions, StyleSheet, Platform} from 'react-native';
+import {
+  View,
+  Text,
+  Dimensions,
+  StyleSheet,
+  Platform,
+  Pressable,
+} from 'react-native';
+import data from '../../utils/data.json';
 
-const ENTRIES = [
-  {
-    title: 'Beautiful and dramatic Antelope Canyon',
-    subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-    illustration:
-      'https://cdn.bubilet.com.tr/files/Etkinlik/mary-jane-konseri-26226.jpg',
-  },
-  {
-    title: 'Earlier this morning, NYC',
-    subtitle: 'Lorem ipsum dolor sit amet',
-    illustration:
-      'https://img3.aksam.com.tr/imgsdisk/2020/10/30/t25_mary-jane-adli-muzik-grub-138.jpg',
-  },
-  {
-    title: 'White Pocket Sunset',
-    subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
-    illustration: 'https://i.ytimg.com/vi/sdEuwKbnflM/maxresdefault.jpg',
-  },
-];
 const {width: screenWidth} = Dimensions.get('window');
 
-const FavoritesCarousel = props => {
+const FavoritesCarousel = ({navigation}) => {
   const [entries, setEntries] = useState([]);
   const carouselRef = useRef(null);
 
   useEffect(() => {
-    setEntries(ENTRIES);
+    setEntries(data);
   }, []);
 
-  const renderItem = ({item, index}, parallaxProps) => {
+  const handleProductselect = _id => {
+    navigation.navigate('ProductDetailScreen', {_id});
+  };
+
+  const renderItem = ({item}, parallaxProps) => {
     return (
-      <View style={styles.item}>
-        <ParallaxImage
-          source={{uri: item.illustration}}
-          containerStyle={styles.imageContainer}
-          style={styles.image}
-          parallaxFactor={0.4}
-          {...parallaxProps}
-        />
-        <View style={styles.titleContainer}>
-          <Text style={styles.title} numberOfLines={1}>
-            {item.title}
-          </Text>
+      <Pressable onPress={() => handleProductselect(item._id)}>
+        <View style={styles.item}>
+          <ParallaxImage
+            source={{uri: item.image}}
+            containerStyle={styles.imageContainer}
+            style={styles.image}
+            parallaxFactor={0.4}
+            {...parallaxProps}
+          />
+          <View style={styles.titleContainer}>
+            <Text style={styles.title} numberOfLines={1}>
+              {item.title}
+            </Text>
+          </View>
         </View>
-      </View>
+      </Pressable>
     );
   };
 
@@ -89,7 +84,7 @@ const styles = StyleSheet.create({
   },
   image: {
     ...StyleSheet.absoluteFillObject,
-    resizeMode: 'cover',
+    resizeMode: 'center',
   },
   titleContainer: {
     position: 'absolute',
@@ -97,7 +92,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     padding: 10,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Background color for title
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     borderBottomLeftRadius: 8,
     borderBottomRightRadius: 8,
   },

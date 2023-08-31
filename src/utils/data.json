@@ -1,20 +1,22 @@
 [
   {
-    "_id": "64ee0f6ca6746c53d2835509",
-    "name": "Mary Jane Konseri",
-    "lat": "37.85281798",
-    "lng": "27.84456461"
+    "_id": "64f06ed7b85d201222b1bc48",
+    "title": "Mary Jane Konseri",
+    "image": "https://cdn.bubilet.com.tr/files/Etkinlik/mary-jane-konseri-26226.jpg"
   },
   {
-    "_id": "64ee144ea6746c53d283550f",
-    "name": "Sagopa Kajmer Konseri",
-    "lat": "37.85281798",
-    "lng": "27.84456461"
+    "_id": "64f06fb2b85d201222b1bc4a",
+    "title": "Sagopa Kajmer Konseri",
+    "image": "https://blog.biletino.com/file/2022/08/sagopa-kajmer-biletino-blog-2324.jpg"
   },
   {
-    "_id": "64ee1480a6746c53d2835511",
-    "name": "Murat Dalkılıç Konseri",
-    "lat": "37.85281798",
-    "lng": "27.84456461"
+    "_id": "64f0b4c86f3c01396d50210a",
+    "title": "Murat Dalkılıç Konseri",
+    "image": "https://cdn.alemfm.com/Documents/alem_fm/images/2016/08/29/16d68574-edab-4ce3-ad9c-32108c21c798.jpg"
+  },
+  {
+    "_id": "64f0b8f26f3c01396d502112",
+    "title": "Ruh Öküzüm Oyunu",
+    "image": "https://cdn.bubilet.com.tr/files/Etkinlik/ruh-okuzum-oyunu-20078.jpg"
   }
 ]
