@@ -47,7 +47,6 @@ export default StyleSheet.create({
   },
   categoryButtonText: {
     fontSize: 16,
-    color: 'blue',
   },
   itemContainer: {
     backgroundColor: 'white',
