@@ -15,7 +15,9 @@ const DetailCarousel = ({data}) => {
     return (
       <View style={styles.item}>
         <ParallaxImage
-          source={{uri: item}}
+          source={
+            item ? {uri: item} : require('../../assets/images/none-image.jpg')
+          }
           containerStyle={styles.imageContainer}
           style={styles.image}
           parallaxFactor={0.4}
@@ -63,7 +65,7 @@ const styles = StyleSheet.create({
   },
   image: {
     ...StyleSheet.absoluteFillObject,
-    resizeMode: 'center',
+    resizeMode: 'contain',
   },
   titleContainer: {
     position: 'absolute',

@@ -3,24 +3,64 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#c2c2c2',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    margin: 10,
+  },
+  filterButton: {
+    fontSize: 16,
+    color: 'black',
+    marginLeft: 10,
+    marginBottom: 10,
+  },
+  modalContainer: {
+    backgroundColor: 'white',
+    padding: 20,
+    borderRadius: 10,
+    elevation: 5,
+    alignItems: 'center', // Ortala
+  },
+  modalBackground: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Yarı şeffaf siyah arka plan
+  },
+  modalContent: {
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding: 20,
+    width: '80%',
+    elevation: 5,
+  },
+  closeButton: {
+    position: 'absolute',
+    right: 10,
+    fontSize: 24,
   },
 
-  backgroundStyle: {
+  categoryButton: {
+    marginBottom: 10,
+  },
+  categoryButtonText: {
+    fontSize: 16,
+    color: 'blue',
+  },
+  itemContainer: {
     backgroundColor: 'white',
-    flexDirection: 'row',
-    margin: 10,
-    height: 50,
-    alignItems: 'center',
-    borderRadius: 20,
-    paddingHorizontal: 10,
+    padding: 15,
+    marginBottom: 10,
+    borderRadius: 8,
+    elevation: 2,
   },
-  iconStyle: {
-    marginHorizontal: 15,
-  },
-  inputStyle: {
-    flex: 1,
+  itemTitle: {
     fontSize: 18,
-    paddingHorizontal: 10,
+    fontWeight: 'bold',
+  },
+  itemCategory: {
+    color: 'gray',
   },
 });

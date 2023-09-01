@@ -21,7 +21,7 @@ export default StyleSheet.create({
   },
   place: {
     fontSize: 18,
-    color: 'gray',
+    color: 'grayc',
     marginBottom: 10,
     textAlign: 'center',
   },
@@ -30,6 +30,7 @@ export default StyleSheet.create({
     marginBottom: 20,
     lineHeight: 24,
     margin: 10,
+    textAlign: 'center',
   },
   price: {
     fontSize: 20,
@@ -39,10 +40,38 @@ export default StyleSheet.create({
     textAlign: 'center',
     justifyContent: 'center',
   },
+  adress: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'black',
+
+    textAlign: 'center',
+    justifyContent: 'center',
+  },
   mapContainer: {
     flex: 1,
     height: deviceSize.height / 3,
     width: deviceSize.width - 10,
   },
   map: {flex: 1},
+  toggleButton: {
+    alignSelf: 'center',
+    marginVertical: 10,
+    padding: 10,
+    backgroundColor: '#3498db',
+    borderRadius: 5,
+  },
+  toggleIosButton: {
+    flex: 1,
+    alignSelf: 'center',
+    marginVertical: 10,
+    padding: 10,
+
+    borderRadius: 5,
+  },
+  toggleButtonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
 });

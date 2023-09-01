@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, TextInput, Text, FlatList} from 'react-native';
+import {View, TextInput, FlatList} from 'react-native';
 import useFetch from '../../../hooks/useFetch/useFetch';
 import styles from './SearchScreen.style';
 import {API_URL} from '@env';

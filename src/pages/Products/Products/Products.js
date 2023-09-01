@@ -21,8 +21,11 @@ const Product = ({navigation}) => {
   const renderProduct = ({item}) => (
     <ProductCart data={item} onSelect={() => handleProductselect(item._id)} />
   );
-  function headerButtonPressHandler() {
+  function searchPress() {
     navigation.navigate('SearchScreen');
+  }
+  function filterPress() {
+    navigation.navigate('FilterScreen');
   }
 
   useLayoutEffect(() => {
@@ -31,12 +34,17 @@ const Product = ({navigation}) => {
         return (
           <View style={{flexDirection: 'row'}}>
             <IconButton
-              name={'music'}
+              name={'magnify'}
               color={'white'}
               size={26}
-              onPress={headerButtonPressHandler}
+              onPress={searchPress}
             />
-            <IconButton name={'account'} color={'white'} size={26} />
+            <IconButton
+              name={'filter'}
+              color={'white'}
+              size={26}
+              onPress={filterPress}
+            />
           </View>
         );
       },

@@ -29,7 +29,11 @@ const FavoritesCarousel = ({navigation}) => {
       <Pressable onPress={() => handleProductselect(item._id)}>
         <View style={styles.item}>
           <ParallaxImage
-            source={{uri: item.image}}
+            source={
+              item.image
+                ? {uri: item.image}
+                : require('../../assets/images/none-image.jpg')
+            }
             containerStyle={styles.imageContainer}
             style={styles.image}
             parallaxFactor={0.4}
@@ -84,7 +88,7 @@ const styles = StyleSheet.create({
   },
   image: {
     ...StyleSheet.absoluteFillObject,
-    resizeMode: 'center',
+    resizeMode: 'cover',
   },
   titleContainer: {
     position: 'absolute',

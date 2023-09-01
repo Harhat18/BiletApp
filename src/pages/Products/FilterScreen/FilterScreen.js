@@ -1,25 +1,28 @@
-import React, {useState, useEffect} from 'react';
-import {View, TextInput, FlatList} from 'react-native';
-import useFetch from '../../../hooks/useFetch/useFetch';
-import styles from './SearchScreen.style';
-import {API_URL} from '@env';
+import {
+  View,
+  Text,
+  Modal,
+  TouchableOpacity,
+  StyleSheet,
+  FlatList,
+} from 'react-native';
+import React, {useState} from 'react';
 import Error from '../../../component/Error/Error';
+import styles from './FilterScreen.style';
+import useFetch from '../../../hooks/useFetch/useFetch';
+import {API_URL} from '@env';
 import Loading from '../../../component/Loading/Loading';
 import ProductCart from '../../../component/ProductCart/ProductCart';
-import IconButton from '../../../component/IconButton/IconButton';
 
 const FilterScreen = ({navigation}) => {
   const {data, loading, error} = useFetch(API_URL);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState('all');
 
-  const [filteredData, setFilterData] = useState([]);
-  const [masterData, setMasterData] = useState([]);
-  const [search, setSearch] = useState([]);
-
-  useEffect(() => {
-    setFilterData(data);
-    setMasterData(data);
-    return () => {};
-  }, [data]);
+  const handleCategorySelect = category => {
+    setSelectedCategory(category);
+    setModalVisible(false);
+  };
 
   if (error) {
     return <Error />;
@@ -28,56 +31,65 @@ const FilterScreen = ({navigation}) => {
   if (loading) {
     return <Loading />;
   }
-  const searchFilter = text => {
-    const searchText = text.toUpperCase();
-    const newFilteredData = masterData.filter(item => {
-      const itemTitle = item.title ? item.title.toUpperCase() : '';
-      const itemCategory = item.category ? item.category.toUpperCase() : '';
-      const itemPlace = item.place ? item.place.toUpperCase() : '';
 
-      const titleMatch = itemTitle.includes(searchText);
-      const categoryMatch = itemCategory.includes(searchText); // Kategoriye göre arama
-      const placeMatch = itemPlace.includes(searchText); // Yere göre arama
+  // Kategoriye göre filtreleme işlemi
+  const filteredData =
+    selectedCategory === 'all'
+      ? data
+      : data.filter(item => item.category === selectedCategory);
 
-      return titleMatch || categoryMatch || placeMatch; // Herhangi biri eşleşirse kabul et
-    });
-
-    setFilterData(newFilteredData);
-    setSearch(text);
-  };
-
-  const renderSearch = ({item}) => (
+  const renderItem = ({item}) => (
+    <View style={styles.itemContainer}>
+      <Text style={styles.itemTitle}>{item.title}</Text>
+      <Text style={styles.itemCategory}>{item.category}</Text>
+    </View>
+  );
+  const renderFilter = ({item}) => (
     <ProductCart data={item} onSelect={() => handleProductselect(item._id)} />
   );
   const handleProductselect = _id => {
     navigation.navigate('ProductDetailScreen', {_id});
   };
-
   return (
-    <View style={{flex: 1}}>
-      <View style={styles.backgroundStyle}>
-        <IconButton
-          name={'magnify'}
-          color={'black'}
-          size={26}
-          style={styles.iconStyle}
-        />
-        <TextInput
-          value={search}
-          placeholder="Etkinlik Adı, Kategori veya Yer Ara"
-          onChangeText={text => searchFilter(text)}
-          style={styles.inputStyle}
-          autoCorrect={false}
-          autoCapitalize="none"
-        />
-      </View>
-      <View style={styles.container}>
-        <FlatList
-          data={filteredData}
-          renderItem={renderSearch}
-          keyExtractor={(item, index) => index.toString()}
-        />
-      </View>
+    <View style={styles.container}>
+      <Text style={styles.title}>Filtre</Text>
+      <TouchableOpacity onPress={() => setModalVisible(true)}>
+        <Text style={styles.filterButton}>Filtre Seç</Text>
+      </TouchableOpacity>
+      <Modal visible={modalVisible} animationType="slide">
+        <View style={styles.modalBackground}>
+          <View style={styles.modalContent}>
+            <TouchableOpacity onPress={() => setModalVisible(false)}>
+              <Text style={styles.closeButton}>x</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => handleCategorySelect('all')}
+              style={styles.categoryButton}>
+              <Text style={styles.categoryButtonText}>Hepsi</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => handleCategorySelect('Konser')}
+              style={styles.categoryButton}>
+              <Text style={styles.categoryButtonText}>Konser</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => handleCategorySelect('Tiyatro')}
+              style={styles.categoryButton}>
+              <Text style={styles.categoryButtonText}>Tiyatro</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => handleCategorySelect('Festival')}
+              style={styles.categoryButton}>
+              <Text style={styles.categoryButtonText}>Festival</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+      <FlatList
+        data={filteredData}
+        renderItem={renderFilter}
+        keyExtractor={item => item._id}
+      />
     </View>
   );
 };

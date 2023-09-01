@@ -13,6 +13,7 @@ import IconComponent from './component/IconComponents/IconComponents';
 import SearchScreen from './pages/Products/SearchScreen/SearchScreen';
 import {Provider} from 'react-redux';
 import {store} from './redux/store';
+import FilterScreen from './pages/Products/FilterScreen/FilterScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -52,6 +53,17 @@ const ProductStack = () => {
           headerTintColor: '#fff',
         }}
       />
+      <Stack.Screen
+        name="FilterScreen"
+        component={FilterScreen}
+        options={{
+          title: 'BiletApp',
+          headerStyle: {backgroundColor: '#2f4f4f'},
+          headerTitleStyle: {color: '#fff', fontSize: 20},
+          headerTitleAlign: 'center',
+          headerTintColor: '#fff',
+        }}
+      />
     </Stack.Navigator>
   );
 };
@@ -75,7 +87,7 @@ const App = () => {
             options={{
               headerShown: false,
               tabBarIcon: ({color, size}) => (
-                <IconComponent name={'music'} color={color} size={size} />
+                <IconComponent name={'ticket'} color={color} size={size} />
               ),
             }}
           />

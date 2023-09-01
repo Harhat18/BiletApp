@@ -4,17 +4,19 @@ import styles from './MapComponent.style';
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 
 const MapComponent = ({place, lat, lng, adress}) => {
+  const initialRegion = {
+    latitude: lat,
+    longitude: lng,
+    latitudeDelta: 0.005,
+    longitudeDelta: 0.005,
+  };
+
   return (
     <View style={styles.mapContainer}>
       <MapView
         style={styles.map}
         provider={PROVIDER_GOOGLE}
-        initialRegion={{
-          latitude: lat,
-          longitude: lng,
-          latitudeDelta: 0.005,
-          longitudeDelta: 0.005,
-        }}>
+        initialRegion={initialRegion}>
         <Marker
           coordinate={{
             latitude: lat,
