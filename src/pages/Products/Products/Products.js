@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unstable-nested-components */
-import {FlatList, ScrollView, View} from 'react-native';
+import {FlatList, Image, ScrollView, View} from 'react-native';
 import React, {useLayoutEffect} from 'react';
 import styles from './Products.style';
 import ProductCart from '../../../component/ProductCart/ProductCart';

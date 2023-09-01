@@ -3,14 +3,14 @@ import React from 'react';
 import styles from './ProductCart.style';
 
 const ProductCart = ({data, onSelect}) => {
-  let categoryBackgroundColor = '#696969'; // Varsayılan renk
+  let categoryBackgroundColor = '#696969';
 
   if (data.category === 'Tiyatro') {
-    categoryBackgroundColor = '#FFD700'; // Sarı rengin kodu
+    categoryBackgroundColor = '#FFD700';
   } else if (data.category === 'Stand Up') {
-    categoryBackgroundColor = '#1E90FF'; // Mavi rengin kodu
+    categoryBackgroundColor = '#1E90FF';
   } else if (data.category === 'Festival') {
-    categoryBackgroundColor = '#FF0000'; // Kırmızı rengin kodu
+    categoryBackgroundColor = '#FF0000';
   }
   const dynamicCategoryContainerStyle = {
     ...styles.categoryContainer,
@@ -27,7 +27,14 @@ const ProductCart = ({data, onSelect}) => {
           <View style={dynamicCategoryContainerStyle}>
             <Text style={styles.categoryText}>{data.category}</Text>
           </View>
-          <Image source={{uri: data.images[0]}} style={styles.image} />
+          <Image
+            source={
+              data.images && data.images.length > 0
+                ? {uri: data.images[0]}
+                : require('../../assets/images/none-image.jpg')
+            }
+            style={styles.image}
+          />
         </View>
         <View style={styles.info_container}>
           <Text style={styles.place}>{data.place}</Text>

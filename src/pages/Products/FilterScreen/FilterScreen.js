@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, TextInput, Text, FlatList} from 'react-native';
+import {View, TextInput, FlatList} from 'react-native';
 import useFetch from '../../../hooks/useFetch/useFetch';
 import styles from './SearchScreen.style';
 import {API_URL} from '@env';
@@ -8,7 +8,7 @@ import Loading from '../../../component/Loading/Loading';
 import ProductCart from '../../../component/ProductCart/ProductCart';
 import IconButton from '../../../component/IconButton/IconButton';
 
-const SearchScreen = ({navigation}) => {
+const FilterScreen = ({navigation}) => {
   const {data, loading, error} = useFetch(API_URL);
 
   const [filteredData, setFilterData] = useState([]);
@@ -82,4 +82,4 @@ const SearchScreen = ({navigation}) => {
   );
 };
 
-export default SearchScreen;
+export default FilterScreen;
