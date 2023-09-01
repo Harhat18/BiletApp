@@ -14,6 +14,17 @@ import SearchScreen from './pages/Products/SearchScreen/SearchScreen';
 import {Provider} from 'react-redux';
 import {store} from './redux/store';
 import FilterScreen from './pages/Products/FilterScreen/FilterScreen';
+import LoginScreen from './pages/Profile/LoginScreen/LoginScreen';
+import SignupScreen from './pages/Profile/SignupScreen/SignupScren';
+import WellcomeScreen from './pages/Profile/WellcomeScreen/WelcomeScreen';
+
+const defaultOptions = {
+  title: 'BiletApp',
+  headerStyle: {backgroundColor: '#2f4f4f'},
+  headerTitleStyle: {color: '#fff', fontSize: 20},
+  headerTitleAlign: 'center',
+  headerTintColor: '#fff',
+};
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -23,46 +34,22 @@ const ProductStack = () => {
       <Stack.Screen
         name="ProductScreen"
         component={Product}
-        options={{
-          title: 'BiletApp',
-          headerStyle: {backgroundColor: '#2f4f4f'},
-          headerTitleStyle: {color: '#fff', fontSize: 20},
-          headerTitleAlign: 'center',
-          headerTintColor: '#fff',
-        }}
+        options={defaultOptions}
       />
       <Stack.Screen
         name="ProductDetailScreen"
         component={ProductDetail}
-        options={{
-          title: 'BiletApp',
-          headerStyle: {backgroundColor: '#2f4f4f'},
-          headerTitleStyle: {color: '#fff', fontSize: 20},
-          headerTitleAlign: 'center',
-          headerTintColor: '#fff',
-        }}
+        options={defaultOptions}
       />
       <Stack.Screen
         name="SearchScreen"
         component={SearchScreen}
-        options={{
-          title: 'BiletApp',
-          headerStyle: {backgroundColor: '#2f4f4f'},
-          headerTitleStyle: {color: '#fff', fontSize: 20},
-          headerTitleAlign: 'center',
-          headerTintColor: '#fff',
-        }}
+        options={defaultOptions}
       />
       <Stack.Screen
         name="FilterScreen"
         component={FilterScreen}
-        options={{
-          title: 'BiletApp',
-          headerStyle: {backgroundColor: '#2f4f4f'},
-          headerTitleStyle: {color: '#fff', fontSize: 20},
-          headerTitleAlign: 'center',
-          headerTintColor: '#fff',
-        }}
+        options={defaultOptions}
       />
     </Stack.Navigator>
   );
@@ -70,8 +57,31 @@ const ProductStack = () => {
 const ProfileStack = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="ProfileScreen" component={Profile} />
-      <Stack.Screen name="ProfileEditScreen" component={ProfileEdit} />
+      <Stack.Screen
+        name="Signup"
+        component={SignupScreen}
+        options={defaultOptions}
+      />
+      <Stack.Screen
+        name="Login"
+        component={LoginScreen}
+        options={defaultOptions}
+      />
+      <Stack.Screen
+        name="Wellcome"
+        component={WellcomeScreen}
+        options={defaultOptions}
+      />
+      <Stack.Screen
+        name="ProfileScreen"
+        component={Profile}
+        options={defaultOptions}
+      />
+      <Stack.Screen
+        name="ProfileEditScreen"
+        component={ProfileEdit}
+        options={defaultOptions}
+      />
     </Stack.Navigator>
   );
 };
