@@ -20,7 +20,7 @@ function useFetch(url) {
   useEffect(() => {
     fetchData();
   }, []);
-  return {data, loading, error};
+  return {data, setData, loading, error};
 }
 
 export default useFetch;

@@ -1,16 +1,59 @@
-import {View, Text, Image, ScrollView} from 'react-native';
 import React from 'react';
+import {
+  View,
+  Text,
+  ScrollView,
+  Linking,
+  Platform,
+  Share,
+  Pressable,
+} from 'react-native';
 import styles from './ProductDetail.style';
+
 import {API_URL} from '@env';
 import useFetch from '../../../hooks/useFetch/useFetch';
+
 import Error from '../../../component/Error/Error';
 import Loading from '../../../component/Loading/Loading';
-import MapView, {Marker} from 'react-native-maps';
+import DetailCarousel from '../../../component/Carousel/DetailCarousel';
+import MapComponent from '../../../component/MapComponent/MapComponent';
 
-const ProductDetail = ({route}) => {
+const ProductDetail = ({route, navigation}) => {
   const {_id} = route.params;
-
   const {data, error, loading} = useFetch(`${API_URL}/${_id}`);
+  const {title, place, description, price, lat, lng, adress} = data;
+
+  const openMap = () => {
+    const mapUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+    Linking.openURL(mapUrl);
+  };
+  const openAppleMap = () => {
+    const mapUrl = `http://maps.apple.com/?ll=${lat},${lng}`;
+    Linking.openURL(mapUrl);
+  };
+  const handlePlace = () => {
+    navigation.navigate('PlaceScreen', {place});
+  };
+  const handleShare = () => {
+    Share.share({
+      title: title,
+      message: `Bu muhteşem faliyeti gördünmü?: ${title} at ${place} for ${price} TL`,
+    })
+      .then(result => {
+        if (result.action === Share.sharedAction) {
+          if (result.activityType) {
+            console.log(`Shared via ${result.activityType}`);
+          } else {
+            console.log('Shared successfully');
+          }
+        } else if (result.action === Share.dismissedAction) {
+          console.log('Sharing dismissed');
+        }
+      })
+      .catch(err => {
+        console.error('Error sharing:', err);
+      });
+  };
 
   if (error) {
     return <Error />;
@@ -19,35 +62,42 @@ const ProductDetail = ({route}) => {
   if (loading) {
     return <Loading />;
   }
+
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <Image source={{uri: data.image}} style={styles.image} />
-        <Text style={styles.title}>{data.title}</Text>
-        <Text style={styles.place}>{data.place}</Text>
-        <Text style={styles.desc}>{data.description}</Text>
-        <Text style={styles.price}>{data.price} TL</Text>
-        <View style={styles.mapContainer}>
-          {/* <MapView
-            style={styles.map}
-            initialRegion={{
-              latitude: data.location[0],
-              longitude: data.location[1],
-              latitudeDelta: 0.1,
-              longitudeDelta: 0.1,
-            }}>
-            <Marker
-              coordinate={{
-                latitude: data.location[0],
-                longitude: data.location[1],
-              }}
-              title={data.place}
-              description={data.adress}
-            />
-          </MapView> */}
+    <View>
+      <ScrollView>
+        <View style={styles.container}>
+          <View style={styles.carousel}>
+            <DetailCarousel data={data} />
+          </View>
+          <Text style={styles.title}>{title}</Text>
+          <Pressable onPress={handlePlace}>
+            <Text style={styles.place}>{place}</Text>
+          </Pressable>
+          <Text style={styles.desc}>{description}</Text>
+          <Text style={styles.price}>{price} TL</Text>
         </View>
-      </View>
-    </ScrollView>
+        <Pressable onPress={handleShare} style={styles.toggleButton}>
+          <Text style={styles.toggleButtonText}>PAYLAŞ</Text>
+        </Pressable>
+        <Text style={styles.adress}>Adres:{adress}</Text>
+        {Platform.OS === 'android' ? (
+          <Pressable onPress={openMap} style={styles.toggleButton}>
+            <Text style={styles.toggleButtonText}>Hatita Üzerinde Göster</Text>
+          </Pressable>
+        ) : (
+          <Pressable onPress={openAppleMap} style={styles.toggleIosButton}>
+            <MapComponent
+              route={route}
+              lat={lat}
+              lng={lng}
+              address={adress}
+              place={place}
+            />
+          </Pressable>
+        )}
+      </ScrollView>
+    </View>
   );
 };
 

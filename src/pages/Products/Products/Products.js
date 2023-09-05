@@ -1,48 +1,96 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unstable-nested-components */
-import {FlatList, View} from 'react-native';
-import React, {useLayoutEffect, useState} from 'react';
+import React, {useEffect, useLayoutEffect} from 'react';
+import {FlatList, ScrollView, View} from 'react-native';
 import styles from './Products.style';
-import ProductCart from '../../../component/ProductCart/ProductCart';
-import useFetch from '../../../hooks/useFetch/useFetch';
+
 import {API_URL} from '@env';
+import useFetch from '../../../hooks/useFetch/useFetch';
+
 import Error from '../../../component/Error/Error.js';
 import Loading from '../../../component/Loading/Loading.js';
 import IconButton from '../../../component/IconButton/IconButton';
-import SearchBar from '../../../component/SearchBar/SearchBar';
+
+import FavoritesCarousel from '../../../component/Carousel/FavoritesCarousel';
+import ProductCart from '../../../component/ProductCart/ProductCart';
+import {useDispatch} from 'react-redux';
+import {setData, setLoading, setError} from '../../../redux/product';
 
 const Product = ({navigation}) => {
+  const dispatch = useDispatch();
   const {data, error, loading} = useFetch(API_URL);
-  const [isSearchVisible, setSearchVisible] = useState(false);
+
+  useEffect(() => {
+    dispatch(setData(data));
+    dispatch(setError(error));
+    dispatch(setLoading(loading));
+  }, [sortedData, dispatch]);
+
+  const sortedData = data.sort((a, b) => new Date(a.date) - new Date(b.date));
+  const currentDate = new Date();
+  const filteredData = data.filter(item => new Date(item.date) >= currentDate);
 
   const handleProductselect = _id => {
     navigation.navigate('ProductDetailScreen', {_id});
   };
 
+  function searchPress() {
+    navigation.navigate('SearchScreen');
+  }
+  function filterPress() {
+    navigation.navigate('FilterScreen');
+  }
+  function filterDatePress() {
+    navigation.navigate('FilterDateScreen');
+  }
+  function OutDatePress() {
+    navigation.navigate('OutDateScreen');
+  }
   const renderProduct = ({item}) => (
     <ProductCart data={item} onSelect={() => handleProductselect(item._id)} />
   );
-  function headerButtonPressHandler() {
-    setSearchVisible(!isSearchVisible);
-  }
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => {
         return (
-          <View style={{flexDirection: 'row'}}>
+          <View style={styles.header}>
             <IconButton
               name={'magnify'}
               color={'white'}
-              size={26}
-              onPress={headerButtonPressHandler}
+              size={24}
+              onPress={searchPress}
             />
-            <IconButton name={'filter'} color={'white'} size={26} />
+            <IconButton
+              name={'filter'}
+              color={'white'}
+              size={24}
+              onPress={filterPress}
+            />
+            <IconButton
+              name={'calendar-range'}
+              color={'white'}
+              size={24}
+              onPress={filterDatePress}
+            />
+          </View>
+        );
+      },
+      headerLeft: () => {
+        return (
+          <View style={styles.header}>
+            <IconButton
+              name={'update'}
+              color={'white'}
+              size={24}
+              onPress={OutDatePress}
+            />
           </View>
         );
       },
     });
   }, [navigation]);
+  // return <Error />;
   if (error) {
     return <Error />;
   }
@@ -51,15 +99,20 @@ const Product = ({navigation}) => {
     return <Loading />;
   }
   return (
-    <View style={styles.container}>
-      {isSearchVisible && <SearchBar />}
-
-      <FlatList
-        keyExtractor={item => item._id}
-        data={data}
-        renderItem={renderProduct}
-      />
-    </View>
+    <ScrollView>
+      <View style={styles.container}>
+        <View style={styles.carouselContainer}>
+          <FavoritesCarousel navigation={navigation} />
+        </View>
+        <View style={styles.listContainer}>
+          <FlatList
+            keyExtractor={item => item.title}
+            data={filteredData}
+            renderItem={renderProduct}
+          />
+        </View>
+      </View>
+    </ScrollView>
   );
 };
 
