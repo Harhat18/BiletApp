@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, Button, FlatList} from 'react-native';
+import {View, Text, Button, FlatList} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import DatePicker from 'react-native-date-picker';
 import ProductCart from '../../../component/ProductCart/ProductCart';
@@ -34,6 +34,7 @@ const FilterDateScreen = ({navigation}) => {
   const handleProductselect = _id => {
     navigation.navigate('ProductDetailScreen', {_id});
   };
+
   if (error) {
     return <Error />;
   }

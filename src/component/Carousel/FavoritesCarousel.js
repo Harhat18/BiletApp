@@ -77,18 +77,21 @@ const styles = StyleSheet.create({
   },
   item: {
     width: screenWidth - 60,
-    height: 178,
+    height: 185,
   },
   imageContainer: {
     flex: 1,
     marginBottom: Platform.select({ios: 0, android: 1}),
-    marginTop: 10,
+    marginTop: 5,
     backgroundColor: 'white',
     borderRadius: 8,
   },
   image: {
     ...StyleSheet.absoluteFillObject,
-    resizeMode: 'cover',
+    resizeMode: Platform.select({
+      ios: 'center',
+      android: 'stretch',
+    }),
   },
   titleContainer: {
     position: 'absolute',

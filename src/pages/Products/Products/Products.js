@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unstable-nested-components */
-import React, {useEffect, useLayoutEffect} from 'react';
+import React, {useLayoutEffect} from 'react';
 import {FlatList, ScrollView, View} from 'react-native';
 import styles from './Products.style';
 
@@ -20,15 +20,17 @@ const Product = ({navigation}) => {
   const dispatch = useDispatch();
   const {data, error, loading} = useFetch(API_URL);
 
-  useEffect(() => {
-    dispatch(setData(data));
-    dispatch(setError(error));
-    dispatch(setLoading(loading));
-  }, [sortedData, dispatch]);
+  dispatch(setData(data));
+  dispatch(setError(error));
+  dispatch(setLoading(loading));
 
-  const sortedData = data.sort((a, b) => new Date(a.date) - new Date(b.date));
   const currentDate = new Date();
   const filteredData = data.filter(item => new Date(item.date) >= currentDate);
+  const sortedData = filteredData.sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    return dateA - dateB;
+  });
 
   const handleProductselect = _id => {
     navigation.navigate('ProductDetailScreen', {_id});
@@ -107,7 +109,7 @@ const Product = ({navigation}) => {
         <View style={styles.listContainer}>
           <FlatList
             keyExtractor={item => item.title}
-            data={filteredData}
+            data={sortedData}
             renderItem={renderProduct}
           />
         </View>

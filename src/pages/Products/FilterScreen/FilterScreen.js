@@ -33,9 +33,16 @@ const FilterScreen = ({navigation}) => {
       ? data
       : data.filter(item => item.category === selectedCategory);
   const currentDate = new Date();
+
   const filtered = filteredData.filter(
     item => new Date(item.date) >= currentDate,
   );
+  const sortedData = filtered.sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    return dateA - dateB;
+  });
+
   const renderFilter = ({item}) => (
     <ProductCart data={item} onSelect={() => handleProductselect(item._id)} />
   );
@@ -89,7 +96,7 @@ const FilterScreen = ({navigation}) => {
         </View>
       ) : (
         <FlatList
-          data={filtered}
+          data={sortedData}
           renderItem={renderFilter}
           keyExtractor={item => item._id}
         />

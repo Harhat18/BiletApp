@@ -31,6 +31,7 @@ export default StyleSheet.create({
     marginBottom: 10,
     textAlign: 'center',
   },
+
   desc: {
     fontSize: 16,
     marginBottom: 20,
@@ -38,11 +39,23 @@ export default StyleSheet.create({
     margin: 10,
     textAlign: 'center',
   },
-  price: {
+  categoryPriceContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    padding: 10,
+  },
+  priceTitle: {
+    textAlign: 'center',
     fontSize: 20,
     fontWeight: 'bold',
-    color: 'black',
-    marginBottom: 20,
+    marginBottom: 10,
+  },
+  price: {
+    fontSize: 16,
+    textAlign: 'center',
+  },
+  category: {
+    fontSize: 16,
     textAlign: 'center',
   },
   adress: {
@@ -50,15 +63,7 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     color: 'black',
     textAlign: 'center',
-    marginBottom: 10,
-  },
-  mapContainer: {
-    flex: 1,
-    height: deviceSize.height / 3,
-    width: deviceSize.width - 10,
-  },
-  map: {
-    flex: 1,
+    margin: 10,
   },
   toggleButton: {
     alignSelf: 'center',

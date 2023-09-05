@@ -21,7 +21,11 @@ const SearchScreen = ({navigation}) => {
   const filtered = filteredData.filter(
     item => new Date(item.date) >= currentDate,
   );
-
+  const sortedData = filtered.sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    return dateA - dateB;
+  });
   useEffect(() => {
     setFilterData(data);
     setMasterData(data);
@@ -43,10 +47,10 @@ const SearchScreen = ({navigation}) => {
       const itemPlace = item.place ? item.place.toUpperCase() : '';
 
       const titleMatch = itemTitle.includes(searchText);
-      const categoryMatch = itemCategory.includes(searchText); // Kategoriye göre arama
-      const placeMatch = itemPlace.includes(searchText); // Yere göre arama
+      const categoryMatch = itemCategory.includes(searchText);
+      const placeMatch = itemPlace.includes(searchText);
 
-      return titleMatch || categoryMatch || placeMatch; // Herhangi biri eşleşirse kabul et
+      return titleMatch || categoryMatch || placeMatch;
     });
 
     setFilterData(newFilteredData);
@@ -81,7 +85,7 @@ const SearchScreen = ({navigation}) => {
       <View style={styles.container}>
         {
           <FlatList
-            data={filtered}
+            data={sortedData}
             renderItem={renderSearch}
             keyExtractor={(item, index) => index.toString()}
           />
