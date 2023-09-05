@@ -6,11 +6,21 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  selectDateContainer: {flexDirection: 'row'},
+  buttonContainer: {flex: 1},
   button: {
     marginTop: 10,
-    backgroundColor: 'blue', // Buton arkaplan rengi
+    backgroundColor: 'blue',
     padding: 10,
-    borderRadius: 5, // Buton kenar yuvarlaklığı
+    borderRadius: 5,
+  },
+  textContainer: {
+    flex: 1,
+    marginTop: 10,
+  },
+  text: {
+    fontSize: 18,
+    textAlign: 'center',
   },
   warning: {
     flex: 1,

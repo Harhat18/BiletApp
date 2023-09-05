@@ -1,12 +1,17 @@
 import {View, Text, StyleSheet, Button, FlatList} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import DatePicker from 'react-native-date-picker';
-import useFetch from '../../../hooks/useFetch/useFetch';
-import {API_URL} from '@env';
 import ProductCart from '../../../component/ProductCart/ProductCart';
 import styles from './FilterDateScreen.style';
+import {useSelector} from 'react-redux';
+import Error from '../../../component/Error/Error';
+import Loading from '../../../component/Loading/Loading';
+
 const FilterDateScreen = ({navigation}) => {
-  const {data, error, loading} = useFetch(API_URL);
+  const data = useSelector(state => state.products.data);
+  const loading = useSelector(state => state.products.loading);
+  const error = useSelector(state => state.products.error);
+
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [startPickerOpen, setStartPickerOpen] = useState(false);
@@ -29,13 +34,29 @@ const FilterDateScreen = ({navigation}) => {
   const handleProductselect = _id => {
     navigation.navigate('ProductDetailScreen', {_id});
   };
+  if (error) {
+    return <Error />;
+  }
+
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <View style={styles.container}>
-      <Button
-        title="Başlangıç Tarihi Seç"
-        onPress={() => setStartPickerOpen(true)}
-        style={styles.button}
-      />
+      <View style={styles.selectDateContainer}>
+        <View style={styles.buttonContainer}>
+          <Button
+            title="Başlangıç Tarihi Seç"
+            onPress={() => setStartPickerOpen(true)}
+            style={styles.button}
+          />
+        </View>
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>
+            {startDate.toLocaleDateString('tr', 'TR')}
+          </Text>
+        </View>
+      </View>
       <DatePicker
         modal
         title="Başlangıç Tarihini Seç"
@@ -52,11 +73,21 @@ const FilterDateScreen = ({navigation}) => {
           setStartPickerOpen(false);
         }}
       />
-      <Button
-        style={styles.button}
-        title="Bitiş Tarihi Seç"
-        onPress={() => setEndPickerOpen(true)}
-      />
+      <View style={styles.selectDateContainer}>
+        <View style={styles.buttonContainer}>
+          <Button
+            style={styles.button}
+            title="Bitiş Tarihi Seç"
+            onPress={() => setEndPickerOpen(true)}
+          />
+        </View>
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>
+            {endDate.toLocaleDateString('tr', 'TR')}
+          </Text>
+        </View>
+      </View>
+
       <DatePicker
         modal
         title="Bitiş Tarihini Seç"
@@ -73,12 +104,6 @@ const FilterDateScreen = ({navigation}) => {
           setEndPickerOpen(false);
         }}
       />
-      <Text>
-        Seçilen Başlangıç Tarihi: {startDate.toLocaleDateString('tr', 'TR')}
-      </Text>
-      <Text>
-        Seçilen Bitiş Tarihi: {endDate.toLocaleDateString('tr', 'TR')}
-      </Text>
 
       {filteredData.length === 0 ? (
         <View style={styles.warning}>

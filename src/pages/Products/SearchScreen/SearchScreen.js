@@ -1,19 +1,26 @@
 import React, {useState, useEffect} from 'react';
 import {View, TextInput, FlatList} from 'react-native';
-import useFetch from '../../../hooks/useFetch/useFetch';
 import styles from './SearchScreen.style';
-import {API_URL} from '@env';
+
 import Error from '../../../component/Error/Error';
 import Loading from '../../../component/Loading/Loading';
 import ProductCart from '../../../component/ProductCart/ProductCart';
 import IconButton from '../../../component/IconButton/IconButton';
+import {useSelector} from 'react-redux';
 
 const SearchScreen = ({navigation}) => {
-  const {data, loading, error} = useFetch(API_URL);
+  const data = useSelector(state => state.products.data);
+  const loading = useSelector(state => state.products.loading);
+  const error = useSelector(state => state.products.error);
 
   const [filteredData, setFilterData] = useState([]);
   const [masterData, setMasterData] = useState([]);
   const [search, setSearch] = useState([]);
+
+  const currentDate = new Date();
+  const filtered = filteredData.filter(
+    item => new Date(item.date) >= currentDate,
+  );
 
   useEffect(() => {
     setFilterData(data);
@@ -74,7 +81,7 @@ const SearchScreen = ({navigation}) => {
       <View style={styles.container}>
         {
           <FlatList
-            data={filteredData}
+            data={filtered}
             renderItem={renderSearch}
             keyExtractor={(item, index) => index.toString()}
           />

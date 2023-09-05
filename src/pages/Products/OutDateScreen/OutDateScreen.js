@@ -1,14 +1,16 @@
 import React, {useEffect, useState} from 'react';
-import {View, TextInput, FlatList, Text} from 'react-native';
-import useFetch from '../../../hooks/useFetch/useFetch';
+import {View, FlatList, Text} from 'react-native';
 import styles from './OutDateScreen.style';
-import {API_URL} from '@env';
+
 import Error from '../../../component/Error/Error';
 import Loading from '../../../component/Loading/Loading';
 import ProductCart from '../../../component/ProductCart/ProductCart';
+import {useSelector} from 'react-redux';
 
 const SearchScreen = ({navigation}) => {
-  const {data, loading, error} = useFetch(API_URL);
+  const data = useSelector(state => state.products.data);
+  const loading = useSelector(state => state.products.loading);
+  const error = useSelector(state => state.products.error);
   const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
@@ -44,7 +46,7 @@ const SearchScreen = ({navigation}) => {
         <FlatList
           data={filteredData}
           renderItem={renderSearch}
-          keyExtractor={(item, index) => index.toString()}
+          keyExtractor={index => index.toString()}
         />
       }
     </View>

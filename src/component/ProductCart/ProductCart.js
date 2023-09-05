@@ -37,10 +37,10 @@ const ProductCart = ({data, onSelect, navigation}) => {
         </Pressable>
       </View>
       <View style={styles.info_container}>
-        <View style={{flex: 1}}>
+        <View style={styles.text}>
           <Text style={styles.place}>{data.place}</Text>
         </View>
-        <View style={{flex: 1}}>
+        <View style={styles.text}>
           <Text style={styles.date}>
             {new Date(data.date).toLocaleDateString('tr-TR')}
           </Text>

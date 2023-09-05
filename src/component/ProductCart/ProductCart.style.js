@@ -21,6 +21,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     color: 'white',
     fontSize: 15,
+    fontWeight: 'bold',
   },
   image_container: {alignContent: 'center'},
   image: {
@@ -34,11 +35,11 @@ export default StyleSheet.create({
     alignContent: 'space-between',
     textAlign: 'center',
     justifyContent: 'center',
-    padding: 5,
+    padding: 10,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
   },
-
+  text: {flex: 1},
   place: {
     flex: 1,
     color: 'white',
@@ -49,7 +50,7 @@ export default StyleSheet.create({
     flex: 1,
     color: 'white',
     textAlign: 'center',
-    paddingTop: 3,
+    paddingTop: 1,
     alignItems: 'center',
   },
   categoryContainer: {

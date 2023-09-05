@@ -2,15 +2,16 @@ import React, {useState} from 'react';
 import {View, Text, Modal, FlatList, Pressable} from 'react-native';
 import styles from './FilterScreen.style';
 
-import useFetch from '../../../hooks/useFetch/useFetch';
-import {API_URL} from '@env';
-
 import Error from '../../../component/Error/Error';
 import Loading from '../../../component/Loading/Loading';
 import ProductCart from '../../../component/ProductCart/ProductCart';
+import {useSelector} from 'react-redux';
 
 const FilterScreen = ({navigation}) => {
-  const {data, loading, error} = useFetch(API_URL);
+  const data = useSelector(state => state.products.data);
+  const loading = useSelector(state => state.products.loading);
+  const error = useSelector(state => state.products.error);
+
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('all');
 
@@ -27,12 +28,14 @@ const FilterScreen = ({navigation}) => {
     return <Loading />;
   }
 
-  // Kategoriye göre filtreleme işlemi
   const filteredData =
     selectedCategory === 'all'
       ? data
       : data.filter(item => item.category === selectedCategory);
-
+  const currentDate = new Date();
+  const filtered = filteredData.filter(
+    item => new Date(item.date) >= currentDate,
+  );
   const renderFilter = ({item}) => (
     <ProductCart data={item} onSelect={() => handleProductselect(item._id)} />
   );
@@ -78,7 +81,7 @@ const FilterScreen = ({navigation}) => {
         </View>
       </Modal>
 
-      {filteredData.length === 0 ? (
+      {filtered.length === 0 ? (
         <View style={styles.warning}>
           <Text style={styles.warningText}>
             Seçilen kategoride kayıtlı faaliyet yoktur.
@@ -86,7 +89,7 @@ const FilterScreen = ({navigation}) => {
         </View>
       ) : (
         <FlatList
-          data={filteredData}
+          data={filtered}
           renderItem={renderFilter}
           keyExtractor={item => item._id}
         />

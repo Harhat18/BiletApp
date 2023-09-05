@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   item: {
-    width: screenWidth - 30,
+    width: screenWidth - 40,
     height: 250,
   },
   imageContainer: {
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     padding: 10,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Background color for title
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     borderBottomLeftRadius: 8,
     borderBottomRightRadius: 8,
   },

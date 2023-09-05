@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unstable-nested-components */
-import React, {useLayoutEffect} from 'react';
+import React, {useEffect, useLayoutEffect} from 'react';
 import {FlatList, ScrollView, View} from 'react-native';
 import styles from './Products.style';
 
@@ -13,9 +13,18 @@ import IconButton from '../../../component/IconButton/IconButton';
 
 import FavoritesCarousel from '../../../component/Carousel/FavoritesCarousel';
 import ProductCart from '../../../component/ProductCart/ProductCart';
+import {useDispatch} from 'react-redux';
+import {setData, setLoading, setError} from '../../../redux/product';
 
 const Product = ({navigation}) => {
+  const dispatch = useDispatch();
   const {data, error, loading} = useFetch(API_URL);
+
+  useEffect(() => {
+    dispatch(setData(data));
+    dispatch(setError(error));
+    dispatch(setLoading(loading));
+  }, [sortedData, dispatch]);
 
   const sortedData = data.sort((a, b) => new Date(a.date) - new Date(b.date));
   const currentDate = new Date();
@@ -49,19 +58,19 @@ const Product = ({navigation}) => {
             <IconButton
               name={'magnify'}
               color={'white'}
-              size={26}
+              size={24}
               onPress={searchPress}
             />
             <IconButton
               name={'filter'}
               color={'white'}
-              size={26}
+              size={24}
               onPress={filterPress}
             />
             <IconButton
               name={'calendar-range'}
               color={'white'}
-              size={26}
+              size={24}
               onPress={filterDatePress}
             />
           </View>
@@ -73,7 +82,7 @@ const Product = ({navigation}) => {
             <IconButton
               name={'update'}
               color={'white'}
-              size={26}
+              size={24}
               onPress={OutDatePress}
             />
           </View>
@@ -81,7 +90,7 @@ const Product = ({navigation}) => {
       },
     });
   }, [navigation]);
-
+  // return <Error />;
   if (error) {
     return <Error />;
   }

@@ -19,7 +19,7 @@ const ProductStack = () => {
           title: 'BiletApp',
           headerStyle: {backgroundColor: '#2f4f4f'},
           headerTitleStyle: {color: '#fff', fontSize: 20},
-          headerTitleAlign: 'center', // Use 'center' for centered title
+          headerTitleAlign: 'center',
           headerTintColor: '#fff',
         }}
       />
@@ -30,7 +30,7 @@ const ProductStack = () => {
           title: 'BiletApp',
           headerStyle: {backgroundColor: '#2f4f4f'},
           headerTitleStyle: {color: '#fff', fontSize: 20},
-          headerTitleAlign: 'center', // Use 'center' for centered title
+          headerTitleAlign: 'center',
           headerTintColor: '#fff',
         }}
       />
@@ -41,7 +41,7 @@ const ProductStack = () => {
           title: 'BiletApp',
           headerStyle: {backgroundColor: '#2f4f4f'},
           headerTitleStyle: {color: '#fff', fontSize: 20},
-          headerTitleAlign: 'center', // Use 'center' for centered title
+          headerTitleAlign: 'center',
           headerTintColor: '#fff',
         }}
       />
@@ -52,7 +52,7 @@ const ProductStack = () => {
           title: 'BiletApp',
           headerStyle: {backgroundColor: '#2f4f4f'},
           headerTitleStyle: {color: '#fff', fontSize: 20},
-          headerTitleAlign: 'center', // Use 'center' for centered title
+          headerTitleAlign: 'center',
           headerTintColor: '#fff',
         }}
       />
@@ -63,7 +63,7 @@ const ProductStack = () => {
           title: 'BiletApp',
           headerStyle: {backgroundColor: '#2f4f4f'},
           headerTitleStyle: {color: '#fff', fontSize: 20},
-          headerTitleAlign: 'center', // Use 'center' for centered title
+          headerTitleAlign: 'center',
           headerTintColor: '#fff',
         }}
       />
@@ -74,7 +74,7 @@ const ProductStack = () => {
           title: 'BiletApp',
           headerStyle: {backgroundColor: '#2f4f4f'},
           headerTitleStyle: {color: '#fff', fontSize: 20},
-          headerTitleAlign: 'center', // Use 'center' for centered title
+          headerTitleAlign: 'center',
           headerTintColor: '#fff',
         }}
       />
@@ -85,7 +85,7 @@ const ProductStack = () => {
           title: 'BiletApp',
           headerStyle: {backgroundColor: '#2f4f4f'},
           headerTitleStyle: {color: '#fff', fontSize: 20},
-          headerTitleAlign: 'center', // Use 'center' for centered title
+          headerTitleAlign: 'center',
           headerTintColor: '#fff',
         }}
       />

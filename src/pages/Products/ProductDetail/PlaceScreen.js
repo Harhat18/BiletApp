@@ -1,16 +1,16 @@
 import {View, Text, FlatList, StyleSheet} from 'react-native';
 import React, {useEffect, useState} from 'react';
 
-import {API_URL} from '@env';
-import useFetch from '../../../hooks/useFetch/useFetch';
-
 import ProductCart from '../../../component/ProductCart/ProductCart';
 import Error from '../../../component/Error/Error';
 import Loading from '../../../component/Loading/Loading';
+import {useSelector} from 'react-redux';
 
 const PlaceScreen = ({route, navigation}) => {
   const {place} = route.params;
-  const {data, loading, error} = useFetch(API_URL);
+  const data = useSelector(state => state.products.data);
+  const loading = useSelector(state => state.products.loading);
+  const error = useSelector(state => state.products.error);
   const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {

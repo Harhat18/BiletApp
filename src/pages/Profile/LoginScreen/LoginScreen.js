@@ -14,7 +14,7 @@ function LoginScreen() {
       await login(email, password);
     } catch (error) {
       Alert.alert(
-        'Böyle bir kullanıcı bulunmamdı',
+        'Böyle bir kullanıcı bulunamadı',
         'Kullanıcı adınızı ve şifrenizi kontrol edip tekrar deneyin.',
       );
     }
