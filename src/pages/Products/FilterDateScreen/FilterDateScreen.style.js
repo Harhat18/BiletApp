@@ -10,9 +10,7 @@ export default StyleSheet.create({
   buttonContainer: {flex: 1},
   button: {
     marginTop: 10,
-    backgroundColor: 'blue',
     padding: 10,
-    borderRadius: 5,
   },
   textContainer: {
     flex: 1,
@@ -21,11 +19,12 @@ export default StyleSheet.create({
   text: {
     fontSize: 18,
     textAlign: 'center',
+    color: 'black',
   },
   warning: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  warningText: {fontSize: 18},
+  warningText: {fontSize: 18, color: 'black'},
 });

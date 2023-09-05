@@ -6,6 +6,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     margin: 5,
+    color: 'black',
   },
   carousel: {
     flex: 1,
@@ -24,10 +25,11 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 10,
     textAlign: 'center',
+    color: 'black',
   },
   place: {
     fontSize: 18,
-    color: 'gray',
+    color: 'black',
     marginBottom: 10,
     textAlign: 'center',
   },
@@ -38,6 +40,7 @@ export default StyleSheet.create({
     lineHeight: 24,
     margin: 10,
     textAlign: 'center',
+    color: 'black',
   },
   categoryPriceContainer: {
     flex: 1,
@@ -49,14 +52,17 @@ export default StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 10,
+    color: 'black',
   },
   price: {
     fontSize: 16,
     textAlign: 'center',
+    color: 'black',
   },
   category: {
     fontSize: 16,
     textAlign: 'center',
+    color: 'black',
   },
   adress: {
     fontSize: 16,

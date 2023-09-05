@@ -71,7 +71,7 @@ function AuthForm({isLogin, onSubmit, credentialsInvalid}) {
         />
         {!isLogin && (
           <Input
-            label="şifre Tekrarı"
+            label="Şifre Tekrarı"
             onUpdateValue={updateInputValueHandler.bind(
               this,
               'confirmPassword',

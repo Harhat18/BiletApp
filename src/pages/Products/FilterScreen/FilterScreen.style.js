@@ -9,9 +9,10 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 10,
     margin: 10,
+    color: 'black',
   },
   filterButton: {
-    fontSize: 16,
+    fontSize: 20,
     color: 'black',
     marginLeft: 10,
     marginBottom: 10,
@@ -32,21 +33,18 @@ export default StyleSheet.create({
   modalContent: {
     backgroundColor: 'white',
     borderRadius: 10,
-    padding: 20,
-    width: '80%',
+    padding: 30,
     elevation: 5,
-  },
-  closeButton: {
-    position: 'absolute',
-    right: 10,
-    fontSize: 24,
+    color: 'black',
   },
 
   categoryButton: {
     marginBottom: 10,
+    color: 'black',
   },
   categoryButtonText: {
-    fontSize: 16,
+    fontSize: 24,
+    color: 'black',
   },
   itemContainer: {
     backgroundColor: 'white',
@@ -58,6 +56,7 @@ export default StyleSheet.create({
   itemTitle: {
     fontSize: 18,
     fontWeight: 'bold',
+    color: 'black',
   },
   itemCategory: {
     color: 'gray',

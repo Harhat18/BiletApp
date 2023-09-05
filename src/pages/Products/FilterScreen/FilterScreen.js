@@ -52,7 +52,7 @@ const FilterScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Filtre</Text>
+      <Text style={styles.title}>Kategori Seçiniz </Text>
       <Pressable onPress={() => setModalVisible(true)}>
         <Text style={styles.filterButton}>
           {selectedCategory === 'all' ? 'Hepsi' : selectedCategory}
@@ -61,9 +61,9 @@ const FilterScreen = ({navigation}) => {
       <Modal visible={modalVisible} animationType="slide">
         <View style={styles.modalBackground}>
           <View style={styles.modalContent}>
-            <Pressable onPress={() => setModalVisible(false)}>
+            {/* <Pressable onPress={() => setModalVisible(false)}>
               <Text style={styles.closeButton}>x</Text>
-            </Pressable>
+            </Pressable> */}
             <Pressable
               onPress={() => handleCategorySelect('all')}
               style={styles.categoryButton}>

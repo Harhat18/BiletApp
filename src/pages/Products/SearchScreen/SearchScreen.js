@@ -76,6 +76,7 @@ const SearchScreen = ({navigation}) => {
         <TextInput
           value={search}
           placeholder="Etkinlik Adı, Kategori veya Yer Ara"
+          placeholderTextColor={'black'}
           onChangeText={text => searchFilter(text)}
           style={styles.inputStyle}
           autoCorrect={false}
