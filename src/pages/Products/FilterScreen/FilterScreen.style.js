@@ -62,4 +62,10 @@ export default StyleSheet.create({
   itemCategory: {
     color: 'gray',
   },
+  warning: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  warningText: {fontSize: 18},
 });

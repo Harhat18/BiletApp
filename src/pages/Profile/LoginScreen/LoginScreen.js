@@ -3,13 +3,21 @@ import {useState} from 'react';
 import AuthContent from '../../../component/Auth/AuthContent';
 import LoadingOverlay from '../../../component/Auth/ui/LoadingOverlay';
 import {login} from '../../../utils/auth.js';
+import {Alert} from 'react-native';
 
 function LoginScreen() {
   const [isAuthenticating, setIsAuthenticating] = useState(false);
 
   async function loginHandler({email, password}) {
     setIsAuthenticating(true);
-    await login(email, password);
+    try {
+      await login(email, password);
+    } catch (error) {
+      Alert.alert(
+        'Böyle bir kullanıcı bulunmamdı',
+        'Kullanıcı adınızı ve şifrenizi kontrol edip tekrar deneyin.',
+      );
+    }
     setIsAuthenticating(false);
   }
 

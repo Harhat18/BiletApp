@@ -1,7 +1,13 @@
 import {StyleSheet, Dimensions} from 'react-native';
+
 const deviceSize = Dimensions.get('window');
+
 export default StyleSheet.create({
   container: {
+    flex: 1,
+    margin: 5,
+  },
+  carousel: {
     flex: 1,
     margin: 5,
   },
@@ -21,7 +27,7 @@ export default StyleSheet.create({
   },
   place: {
     fontSize: 18,
-    color: 'grayc',
+    color: 'gray',
     marginBottom: 10,
     textAlign: 'center',
   },
@@ -38,22 +44,22 @@ export default StyleSheet.create({
     color: 'black',
     marginBottom: 20,
     textAlign: 'center',
-    justifyContent: 'center',
   },
   adress: {
     fontSize: 16,
     fontWeight: 'bold',
     color: 'black',
-
     textAlign: 'center',
-    justifyContent: 'center',
+    marginBottom: 10,
   },
   mapContainer: {
     flex: 1,
     height: deviceSize.height / 3,
     width: deviceSize.width - 10,
   },
-  map: {flex: 1},
+  map: {
+    flex: 1,
+  },
   toggleButton: {
     alignSelf: 'center',
     marginVertical: 10,
@@ -66,7 +72,6 @@ export default StyleSheet.create({
     alignSelf: 'center',
     marginVertical: 10,
     padding: 10,
-
     borderRadius: 5,
   },
   toggleButtonText: {
