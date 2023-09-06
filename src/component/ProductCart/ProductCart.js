@@ -36,17 +36,19 @@ const ProductCart = ({data, onSelect, navigation}) => {
           />
         </Pressable>
       </View>
-      <View style={styles.info_container}>
-        <View style={styles.text}>
-          <Text style={styles.place}>{data.place}</Text>
+      <Pressable onPress={onSelect}>
+        <View style={styles.info_container}>
+          <View style={styles.textContainer}>
+            <Text style={styles.place}>{data.place}</Text>
+          </View>
+          <View style={styles.dateContainer}>
+            <Text style={styles.date}>
+              {new Date(data.date).toLocaleDateString('tr-TR')} -{' '}
+              {data.startHour}
+            </Text>
+          </View>
         </View>
-        <View style={styles.text}>
-          <Text style={styles.date}>
-            {new Date(data.date).toLocaleDateString('tr-TR')}
-          </Text>
-          <Text style={styles.date}>{data.startHour}</Text>
-        </View>
-      </View>
+      </Pressable>
     </View>
   );
 };

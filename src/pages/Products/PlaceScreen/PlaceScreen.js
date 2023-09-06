@@ -1,5 +1,6 @@
-import {View, Text, FlatList, StyleSheet} from 'react-native';
+import {View, Text, FlatList} from 'react-native';
 import React, {useEffect, useState} from 'react';
+import styles from './PlaceScreen.style';
 
 import ProductCart from '../../../component/ProductCart/ProductCart';
 import Error from '../../../component/Error/Error';
@@ -8,9 +9,11 @@ import {useSelector} from 'react-redux';
 
 const PlaceScreen = ({route, navigation}) => {
   const {place} = route.params;
+
   const data = useSelector(state => state.products.data);
   const loading = useSelector(state => state.products.loading);
   const error = useSelector(state => state.products.error);
+
   const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
@@ -47,14 +50,3 @@ const PlaceScreen = ({route, navigation}) => {
 };
 
 export default PlaceScreen;
-
-const styles = StyleSheet.create({
-  container: {flex: 1},
-  placeFilter: {
-    textTransform: 'uppercase',
-    textAlign: 'center',
-    fontSize: 18,
-    fontWeight: 'bold',
-    margin: 5,
-  },
-});

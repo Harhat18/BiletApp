@@ -22,6 +22,5 @@ export default StyleSheet.create({
     flex: 1,
     fontSize: 18,
     paddingHorizontal: 10,
-    color: 'black',
   },
 });

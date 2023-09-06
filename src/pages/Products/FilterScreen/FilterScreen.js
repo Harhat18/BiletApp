@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, Modal, FlatList, Pressable} from 'react-native';
+import {View, Text, FlatList, TouchableOpacity} from 'react-native';
 import styles from './FilterScreen.style';
 
 import Error from '../../../component/Error/Error';
@@ -12,12 +12,10 @@ const FilterScreen = ({navigation}) => {
   const loading = useSelector(state => state.products.loading);
   const error = useSelector(state => state.products.error);
 
-  const [modalVisible, setModalVisible] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedCategory, setSelectedCategory] = useState('Hepsi');
 
   const handleCategorySelect = category => {
     setSelectedCategory(category);
-    setModalVisible(false);
   };
 
   if (error) {
@@ -29,7 +27,7 @@ const FilterScreen = ({navigation}) => {
   }
 
   const filteredData =
-    selectedCategory === 'all'
+    selectedCategory === 'Hepsi'
       ? data
       : data.filter(item => item.category === selectedCategory);
   const currentDate = new Date();
@@ -52,42 +50,26 @@ const FilterScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Kategori Seçiniz </Text>
-      <Pressable onPress={() => setModalVisible(true)}>
-        <Text style={styles.filterButton}>
-          {selectedCategory === 'all' ? 'Hepsi' : selectedCategory}
-        </Text>
-      </Pressable>
-      <Modal visible={modalVisible} animationType="slide">
-        <View style={styles.modalBackground}>
-          <View style={styles.modalContent}>
-            {/* <Pressable onPress={() => setModalVisible(false)}>
-              <Text style={styles.closeButton}>x</Text>
-            </Pressable> */}
-            <Pressable
-              onPress={() => handleCategorySelect('all')}
-              style={styles.categoryButton}>
-              <Text style={styles.categoryButtonText}>Hepsi</Text>
-            </Pressable>
-            <Pressable
-              onPress={() => handleCategorySelect('Konser')}
-              style={styles.categoryButton}>
-              <Text style={styles.categoryButtonText}>Konser</Text>
-            </Pressable>
-            <Pressable
-              onPress={() => handleCategorySelect('Tiyatro')}
-              style={styles.categoryButton}>
-              <Text style={styles.categoryButtonText}>Tiyatro</Text>
-            </Pressable>
-            <Pressable
-              onPress={() => handleCategorySelect('Festival')}
-              style={styles.categoryButton}>
-              <Text style={styles.categoryButtonText}>Festival</Text>
-            </Pressable>
-          </View>
-        </View>
-      </Modal>
-
+      <Text style={styles.title}>Filtre</Text>
+      <View style={styles.selectContent}>
+        {['Hepsi', 'Konser', 'Tiyatro', 'Festival'].map(category => (
+          <TouchableOpacity
+            key={category}
+            onPress={() => handleCategorySelect(category)}
+            style={[
+              styles.categoryButton,
+              selectedCategory === category && styles.selectedCategoryButton,
+            ]}>
+            <Text
+              style={[
+                styles.categoryButtonText,
+                selectedCategory === category && styles.selectedCategoryText,
+              ]}>
+              {category}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
       {filtered.length === 0 ? (
         <View style={styles.warning}>
           <Text style={styles.warningText}>

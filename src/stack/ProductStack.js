@@ -4,9 +4,10 @@ import Product from '../pages/Products/Products/Products';
 import ProductDetail from '../pages/Products/ProductDetail/ProductDetail';
 import SearchScreen from '../pages/Products/SearchScreen/SearchScreen';
 import FilterScreen from '../pages/Products/FilterScreen/FilterScreen';
-import PlaceScreen from '../pages/Products/ProductDetail/PlaceScreen';
+
 import FilterDateScreen from '../pages/Products/FilterDateScreen/FilterDateScreen';
 import OutDateScreen from '../pages/Products/OutDateScreen/OutDateScreen';
+import PlaceScreen from '../pages/Products/PlaceScreen/PlaceScreen';
 const Stack = createNativeStackNavigator();
 
 const ProductStack = () => {

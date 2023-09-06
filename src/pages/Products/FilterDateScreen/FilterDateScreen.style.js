@@ -7,15 +7,14 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   selectDateContainer: {flexDirection: 'row'},
-  buttonContainer: {flex: 1},
-  button: {
-    marginTop: 10,
-    padding: 10,
-  },
+
   textContainer: {
+    width: 200,
     flex: 1,
-    marginTop: 10,
+    padding: 5,
+    margin: 5,
   },
+  selectText: {fontSize: 18, textAlign: 'center', color: 'black'},
   text: {
     fontSize: 18,
     textAlign: 'center',
@@ -26,5 +25,5 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  warningText: {fontSize: 18, color: 'black'},
+  warningText: {fontSize: 18},
 });

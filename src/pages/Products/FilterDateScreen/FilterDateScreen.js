@@ -1,4 +1,4 @@
-import {View, Text, Button, FlatList} from 'react-native';
+import {View, Text, Button, FlatList, Pressable} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import DatePicker from 'react-native-date-picker';
 import ProductCart from '../../../component/ProductCart/ProductCart';
@@ -45,13 +45,11 @@ const FilterDateScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.selectDateContainer}>
-        <View style={styles.buttonContainer}>
-          <Button
-            title="Başlangıç Tarihi Seç"
-            onPress={() => setStartPickerOpen(true)}
-            style={styles.button}
-          />
-        </View>
+        <Pressable onPress={() => setStartPickerOpen(true)}>
+          <View style={styles.textContainer}>
+            <Text style={styles.selectText}>Başlangıç Tarihi Seç</Text>
+          </View>
+        </Pressable>
         <View style={styles.textContainer}>
           <Text style={styles.text}>
             {startDate.toLocaleDateString('tr', 'TR')}
@@ -64,6 +62,7 @@ const FilterDateScreen = ({navigation}) => {
         mode="date"
         confirmText="Tarihi Seç"
         cancelText="İptal"
+        locale="tr"
         open={startPickerOpen}
         date={startDate}
         onConfirm={selectedDate => {
@@ -75,13 +74,12 @@ const FilterDateScreen = ({navigation}) => {
         }}
       />
       <View style={styles.selectDateContainer}>
-        <View style={styles.buttonContainer}>
-          <Button
-            style={styles.button}
-            title="Bitiş Tarihi Seç"
-            onPress={() => setEndPickerOpen(true)}
-          />
-        </View>
+        <Pressable onPress={() => setEndPickerOpen(true)}>
+          <View style={styles.textContainer}>
+            <Text style={styles.selectText}>Bitiş Tarihi Seç</Text>
+          </View>
+        </Pressable>
+
         <View style={styles.textContainer}>
           <Text style={styles.text}>
             {endDate.toLocaleDateString('tr', 'TR')}
@@ -93,6 +91,7 @@ const FilterDateScreen = ({navigation}) => {
         modal
         title="Bitiş Tarihini Seç"
         mode="date"
+        locale="tr"
         confirmText="Tarihi Seç"
         cancelText="İptal"
         open={endPickerOpen}

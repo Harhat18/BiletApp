@@ -9,6 +9,5 @@ export default StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-    color: 'black',
   },
 });

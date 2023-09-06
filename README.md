@@ -1,79 +1,26 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# BiletApp - React Native Bilet Uygulaması
 
-# Getting Started
+BiletApp, React Native ve Redux Toolkit kullanılarak geliştirilmiş bir bilet uygulamasıdır. Bu uygulama etkinlikler hakkında bilgi edinmenize yardımcı olur
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+![WhatsApp Image 2023-09-06 at 14 41 36](https://github.com/Harhat18/BiletApp_v2/assets/111196660/9a1ba13b-93ba-4b33-b8d1-a02f0f140d35)
+![Simulator Screenshot - iPhone SE (1)](https://github.com/Harhat18/BiletApp_v2/assets/111196660/344b8a7f-54a0-44c4-a3c1-0921790ad43b)
+![Simulator Screenshot - iPhone SE](https://github.com/Harhat18/BiletApp_v2/assets/111196660/f4834adb-6508-4ad1-b238-493dac3dd11a)
+![Simulator Screenshot - iPhone SE (2)](https://github.com/Harhat18/BiletApp_v2/assets/111196660/405ea0e8-3363-4047-b2eb-c5981f8db804)
+![Simulator Screenshot - iPhone SE (3)](https://github.com/Harhat18/BiletApp_v2/assets/111196660/8e4d6db6-90ed-4d7d-a03c-e2d91e10a1b8)
+![Simulator Screenshot - iPhone SE (4)](https://github.com/Harhat18/BiletApp_v2/assets/111196660/0d5675c1-5153-4e26-a129-9d18f0c38528)
+![Simulator Screenshot - iPhone SE (5)](https://github.com/Harhat18/BiletApp_v2/assets/111196660/d7450549-5c76-4868-882c-376e90bfb93f)
+![Simulator Screenshot - iPhone SE (6)](https://github.com/Harhat18/BiletApp_v2/assets/111196660/0b31106d-b6ef-4382-a549-33c9f825d892)
+![Simulator Screenshot - iPhone SE (7)](https://github.com/Harhat18/BiletApp_v2/assets/111196660/0d0d1fd0-831e-488c-a1e0-ee94306c77f7)
+![Simulator Screenshot - iPhone SE (8)](https://github.com/Harhat18/BiletApp_v2/assets/111196660/8e4771e4-26ce-419f-ac0a-bea7c5ab794c)
 
-## Step 1: Start the Metro Server
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+- Güçlendirilmiş veri yönetimi için [redux-toolkit] (https://redux-toolkit.js.org/)
+- FontAwesome ve diğer simgeler için [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
+- API istekleri için [axios] (https://www.npmjs.com/package/axios)
+- Animasyonları ile kullanıcı deneyimini zenginleştirmek için [Lottie] (https://github.com/lottie-react-native/lottie-react-native) 
+- Tarih seçimi için [react-native-date-picker] (https://github.com/henninghall/react-native-date-picker) 
+- Harita görüntüleme için [react-native-maps](https://github.com/react-native-maps/react-native-maps)
+- Etkinlik görsellerini göstermek için [react-native-snap-carousel](https://github.com/meliorence/react-native-snap-carousel) kullanılmıştır
 
-To start Metro, run the following command from the _root_ of your React Native project:
 
-```bash
-# using npm
-npm start
 
-# OR using Yarn
-yarn start
-```
-
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
