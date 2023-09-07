@@ -9,11 +9,13 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 10,
     margin: 10,
+    color: 'black',
   },
   selectContent: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
+    color: 'black',
   },
   selectedCategoryButton: {
     backgroundColor: '#2f4f4f',
@@ -23,6 +25,7 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
   },
+  categoryButtonText: {color: 'black'},
   selectedCategoryText: {
     color: 'white',
   },
@@ -50,6 +53,7 @@ export default StyleSheet.create({
   itemTitle: {
     fontSize: 18,
     fontWeight: 'bold',
+    color: 'black',
   },
   itemCategory: {
     color: 'gray',

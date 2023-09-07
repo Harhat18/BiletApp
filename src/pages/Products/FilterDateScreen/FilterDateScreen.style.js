@@ -14,7 +14,11 @@ export default StyleSheet.create({
     padding: 5,
     margin: 5,
   },
-  selectText: {fontSize: 18, textAlign: 'center', color: 'black'},
+  selectText: {
+    fontSize: 18,
+    textAlign: 'center',
+    color: 'black',
+  },
   text: {
     fontSize: 18,
     textAlign: 'center',
@@ -24,6 +28,7 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    color: 'black',
   },
   warningText: {fontSize: 18},
 });

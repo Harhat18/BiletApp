@@ -50,7 +50,7 @@ const FilterScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Filtre</Text>
+      <Text style={styles.title}>Kategorinizi Seçiniz</Text>
       <View style={styles.selectContent}>
         {['Hepsi', 'Konser', 'Tiyatro', 'Festival'].map(category => (
           <TouchableOpacity

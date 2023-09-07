@@ -24,12 +24,14 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 10,
     textAlign: 'center',
+    color: 'black',
   },
   place: {
     fontSize: 18,
-    color: 'gray',
+
     marginBottom: 10,
     textAlign: 'center',
+    color: 'black',
   },
 
   desc: {
@@ -38,6 +40,7 @@ export default StyleSheet.create({
     lineHeight: 24,
     margin: 10,
     textAlign: 'center',
+    color: 'black',
   },
   categoryPriceContainer: {
     flex: 1,
@@ -49,14 +52,20 @@ export default StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 10,
+    color: 'black',
   },
+  categoryContainer: {flex: 1, alignItems: 'flex-end'},
+  dotContainer: {flex: 0.4},
+  priceContainer: {flex: 1, alignItems: 'flex-start'},
   price: {
     fontSize: 16,
     textAlign: 'center',
+    color: 'black',
   },
   category: {
     fontSize: 16,
     textAlign: 'center',
+    color: 'black',
   },
   adress: {
     fontSize: 16,

@@ -58,13 +58,13 @@ const ProductDetail = ({route, navigation}) => {
   const renderCategoryPrices = () => {
     return categoryPrice.map(item => (
       <View key={item._id} style={styles.categoryPriceContainer}>
-        <View style={{flex: 1, alignItems: 'flex-end'}}>
+        <View style={styles.categoryContainer}>
           <Text style={styles.category}>{item.category} </Text>
         </View>
-        <View style={{flex: 0.4}}>
+        <View style={styles.dotContainer}>
           <Text style={styles.category}>:</Text>
         </View>
-        <View style={{flex: 1, alignItems: 'flex-start'}}>
+        <View style={styles.priceContainer}>
           <Text style={styles.price}>{item.price} TL</Text>
         </View>
       </View>
@@ -79,41 +79,37 @@ const ProductDetail = ({route, navigation}) => {
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       <ScrollView>
-        <View style={styles.container}>
-          <View style={styles.carousel}>
-            <DetailCarousel data={data} />
-          </View>
-          <Text style={styles.title}>{title}</Text>
-          <Pressable onPress={handlePlace}>
-            <Text style={styles.place}>{place}</Text>
-          </Pressable>
-          <Text style={styles.desc}>{description}</Text>
-          <Text style={styles.priceTitle}>BİLET ÜCRETLERİ</Text>
-          {renderCategoryPrices()}
-          <Pressable onPress={handleShare} style={styles.toggleButton}>
-            <Text style={styles.toggleButtonText}>PAYLAŞ</Text>
-          </Pressable>
-          <Text style={styles.adress}>Adres:{adress}</Text>
-          {Platform.OS === 'android' ? (
-            <Pressable onPress={openMap} style={styles.toggleButton}>
-              <Text style={styles.toggleButtonText}>
-                Hatita Üzerinde Göster
-              </Text>
-            </Pressable>
-          ) : (
-            <Pressable onPress={openAppleMap} style={styles.toggleIosButton}>
-              <MapComponent
-                route={route}
-                lat={lat}
-                lng={lng}
-                address={adress}
-                place={place}
-              />
-            </Pressable>
-          )}
+        <View style={styles.carousel}>
+          <DetailCarousel data={data} />
         </View>
+        <Text style={styles.title}>{title}</Text>
+        <Pressable onPress={handlePlace}>
+          <Text style={styles.place}>{place}</Text>
+        </Pressable>
+        <Text style={styles.desc}>{description}</Text>
+        <Text style={styles.priceTitle}>BİLET ÜCRETLERİ</Text>
+        {renderCategoryPrices()}
+        <Pressable onPress={handleShare} style={styles.toggleButton}>
+          <Text style={styles.toggleButtonText}>PAYLAŞ</Text>
+        </Pressable>
+        <Text style={styles.adress}>Adres:{adress}</Text>
+        {Platform.OS === 'android' ? (
+          <Pressable onPress={openMap} style={styles.toggleButton}>
+            <Text style={styles.toggleButtonText}>Hatita Üzerinde Göster</Text>
+          </Pressable>
+        ) : (
+          <Pressable onPress={openAppleMap} style={styles.toggleIosButton}>
+            <MapComponent
+              route={route}
+              lat={lat}
+              lng={lng}
+              address={adress}
+              place={place}
+            />
+          </Pressable>
+        )}
       </ScrollView>
     </View>
   );

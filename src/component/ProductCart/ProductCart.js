@@ -28,7 +28,7 @@ const ProductCart = ({data, onSelect, navigation}) => {
         <Pressable onPress={onSelect}>
           <Image
             source={
-              data.images && data.images.length > 0
+              data.images && data.images.length >= 0
                 ? {uri: data.images[0]}
                 : require('../../assets/images/none-image.jpg')
             }

@@ -1,7 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unstable-nested-components */
 import React, {useLayoutEffect} from 'react';
-import {FlatList, ScrollView, View} from 'react-native';
+import {FlatList, ScrollView, View, ViewPropTypes} from 'react-native';
+
 import styles from './Products.style';
 
 import {API_URL} from '@env';
@@ -101,8 +102,8 @@ const Product = ({navigation}) => {
     return <Loading />;
   }
   return (
-    <ScrollView>
-      <View style={styles.container}>
+    <View style={styles.container}>
+      <ScrollView>
         <View style={styles.carouselContainer}>
           <FavoritesCarousel navigation={navigation} />
         </View>
@@ -113,8 +114,8 @@ const Product = ({navigation}) => {
             renderItem={renderProduct}
           />
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 };
 
