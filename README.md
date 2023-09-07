@@ -2,8 +2,8 @@
 
 BiletApp, React Native ve Redux Toolkit kullanılarak geliştirilmiş bir bilet uygulamasıdır. Bu uygulama etkinlikler hakkında bilgi edinmenize yardımcı olur
 
-Android APK : (https://drive.google.com/file/d/1sQVjGD1O2-fWXqRdrGxjJRjIauBs0YLV/view?usp=sharing)
-API url : (https://bilet-backend.vercel.app/api/products)
+-Android APK : (https://drive.google.com/file/d/1sQVjGD1O2-fWXqRdrGxjJRjIauBs0YLV/view?usp=sharing)
+-API url : (https://bilet-backend.vercel.app/api/products)
 
 ![WhatsApp Image 2023-09-06 at 14 41 36](https://github.com/Harhat18/BiletApp_v2/assets/111196660/9a1ba13b-93ba-4b33-b8d1-a02f0f140d35)
 ![Simulator Screenshot - iPhone SE (1)](https://github.com/Harhat18/BiletApp_v2/assets/111196660/344b8a7f-54a0-44c4-a3c1-0921790ad43b)
