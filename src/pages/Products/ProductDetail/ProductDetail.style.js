@@ -11,14 +11,6 @@ export default StyleSheet.create({
     flex: 1,
     margin: 5,
   },
-  image: {
-    height: deviceSize.height / 3,
-    width: '100%',
-    resizeMode: 'cover',
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    marginBottom: 20,
-  },
   title: {
     fontSize: 24,
     fontWeight: 'bold',

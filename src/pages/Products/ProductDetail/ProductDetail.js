@@ -80,7 +80,7 @@ const ProductDetail = ({route, navigation}) => {
 
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.carousel}>
           <DetailCarousel data={data} />
         </View>

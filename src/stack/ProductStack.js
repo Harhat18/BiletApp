@@ -29,6 +29,7 @@ const ProductStack = () => {
         component={ProductDetail}
         options={{
           title: 'BiletApp',
+          headerBackTitle: 'Geri',
           headerStyle: {backgroundColor: '#2f4f4f'},
           headerTitleStyle: {color: '#fff', fontSize: 20},
           headerTitleAlign: 'center',
@@ -40,6 +41,7 @@ const ProductStack = () => {
         component={SearchScreen}
         options={{
           title: 'BiletApp',
+          headerBackTitle: 'Geri',
           headerStyle: {backgroundColor: '#2f4f4f'},
           headerTitleStyle: {color: '#fff', fontSize: 20},
           headerTitleAlign: 'center',
@@ -51,6 +53,7 @@ const ProductStack = () => {
         component={FilterScreen}
         options={{
           title: 'BiletApp',
+          headerBackTitle: 'Geri',
           headerStyle: {backgroundColor: '#2f4f4f'},
           headerTitleStyle: {color: '#fff', fontSize: 20},
           headerTitleAlign: 'center',
@@ -62,6 +65,7 @@ const ProductStack = () => {
         component={FilterDateScreen}
         options={{
           title: 'BiletApp',
+          headerBackTitle: 'Geri',
           headerStyle: {backgroundColor: '#2f4f4f'},
           headerTitleStyle: {color: '#fff', fontSize: 20},
           headerTitleAlign: 'center',
@@ -73,6 +77,7 @@ const ProductStack = () => {
         component={PlaceScreen}
         options={{
           title: 'BiletApp',
+          headerBackTitle: 'Geri',
           headerStyle: {backgroundColor: '#2f4f4f'},
           headerTitleStyle: {color: '#fff', fontSize: 20},
           headerTitleAlign: 'center',
@@ -84,6 +89,7 @@ const ProductStack = () => {
         component={OutDateScreen}
         options={{
           title: 'BiletApp',
+          headerBackTitle: 'Geri',
           headerStyle: {backgroundColor: '#2f4f4f'},
           headerTitleStyle: {color: '#fff', fontSize: 20},
           headerTitleAlign: 'center',

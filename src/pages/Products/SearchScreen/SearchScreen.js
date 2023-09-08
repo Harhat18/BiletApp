@@ -15,7 +15,7 @@ const SearchScreen = ({navigation}) => {
 
   const [filteredData, setFilterData] = useState([]);
   const [masterData, setMasterData] = useState([]);
-  const [search, setSearch] = useState([]);
+  const [search, setSearch] = useState('');
 
   const currentDate = new Date();
   const filtered = filteredData.filter(
@@ -88,7 +88,7 @@ const SearchScreen = ({navigation}) => {
           <FlatList
             data={sortedData}
             renderItem={renderSearch}
-            keyExtractor={(item, index) => index.toString()}
+            keyExtractor={item => item._id}
           />
         }
       </View>

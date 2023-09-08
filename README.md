@@ -1,9 +1,13 @@
 # BiletApp - React Native Bilet Uygulaması
 
-BiletApp, React Native ve Redux Toolkit kullanılarak geliştirilmiş bir bilet uygulamasıdır. Bu uygulama etkinlikler hakkında bilgi edinmenize yardımcı olur
+BiletApp, React Native kullanılarak geliştirilmiş bir bilet uygulamasıdır. Bu uygulama etkinlikler hakkında bilgi edinmenize yardımcı olur
 
--Android APK : (https://drive.google.com/file/d/1Req_kblSZCWnX3DnSwDp2MWgBI0fgVvH/view?usp=sharing)
--API url : (https://bilet-backend.vercel.app/api/products)
+- Android APK : (https://drive.google.com/file/d/1Req_kblSZCWnX3DnSwDp2MWgBI0fgVvH/view?usp=sharing)
+
+- API url : (https://bilet-backend.vercel.app/api/products)
+- API kodları (https://github.com/Harhat18/Bilet_Backend)
+
+- Uygulama videosu (https://drive.google.com/file/d/104oNRvuub25xCINKDIHiqrsXpYgg_S-2/view?usp=sharing)
 
 ![WhatsApp Image 2023-09-06 at 14 41 36](https://github.com/Harhat18/BiletApp_v2/assets/111196660/9a1ba13b-93ba-4b33-b8d1-a02f0f140d35)
 ![Simulator Screenshot - iPhone SE (1)](https://github.com/Harhat18/BiletApp_v2/assets/111196660/344b8a7f-54a0-44c4-a3c1-0921790ad43b)
@@ -24,7 +28,7 @@ BiletApp, React Native ve Redux Toolkit kullanılarak geliştirilmiş bir bilet 
 - Harita görüntüleme için [react-native-maps](https://github.com/react-native-maps/react-native-maps)
 - Etkinlik görsellerini göstermek için [react-native-snap-carousel](https://github.com/meliorence/react-native-snap-carousel) kullanılmıştır
 
-# Uyglamayı Localde Çalıştımak İçin
+# Uygulamayı Yerelde Çalıştırmak İçin
 
 yarn
 yada

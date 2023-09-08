@@ -46,7 +46,7 @@ const SearchScreen = ({navigation}) => {
         <FlatList
           data={filteredData}
           renderItem={renderSearch}
-          keyExtractor={index => index.toString()}
+          keyExtractor={item => item._id}
         />
       }
     </View>

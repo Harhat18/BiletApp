@@ -1,7 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react/no-unstable-nested-components */
-import React, {useLayoutEffect} from 'react';
-import {FlatList, ScrollView, View, ViewPropTypes} from 'react-native';
+import React, {useLayoutEffect, useState, useEffect} from 'react';
+import {ScrollView, View} from 'react-native';
 
 import styles from './Products.style';
 
@@ -20,6 +18,15 @@ import {setData, setLoading, setError} from '../../../redux/product';
 const Product = ({navigation}) => {
   const dispatch = useDispatch();
   const {data, error, loading} = useFetch(API_URL);
+
+  const [showLoading, setShowLoading] = useState(true);
+
+  useEffect(() => {
+    const loadingTimeout = setTimeout(() => {
+      setShowLoading(false);
+    }, 2000);
+    return () => clearTimeout(loadingTimeout);
+  }, []);
 
   dispatch(setData(data));
   dispatch(setError(error));
@@ -49,12 +56,10 @@ const Product = ({navigation}) => {
   function OutDatePress() {
     navigation.navigate('OutDateScreen');
   }
-  const renderProduct = ({item}) => (
-    <ProductCart data={item} onSelect={() => handleProductselect(item._id)} />
-  );
 
   useLayoutEffect(() => {
     navigation.setOptions({
+      // eslint-disable-next-line react/no-unstable-nested-components
       headerRight: () => {
         return (
           <View style={styles.header}>
@@ -79,6 +84,7 @@ const Product = ({navigation}) => {
           </View>
         );
       },
+      // eslint-disable-next-line react/no-unstable-nested-components
       headerLeft: () => {
         return (
           <View style={styles.header}>
@@ -92,27 +98,30 @@ const Product = ({navigation}) => {
         );
       },
     });
-  }, [navigation]);
+  }, []);
   // return <Error />;
   if (error) {
     return <Error />;
   }
 
-  if (loading) {
+  if (showLoading) {
     return <Loading />;
   }
+
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.carouselContainer}>
           <FavoritesCarousel navigation={navigation} />
         </View>
         <View style={styles.listContainer}>
-          <FlatList
-            keyExtractor={item => item.title}
-            data={sortedData}
-            renderItem={renderProduct}
-          />
+          {sortedData.map(item => (
+            <ProductCart
+              key={item._id}
+              data={item}
+              onSelect={() => handleProductselect(item._id)}
+            />
+          ))}
         </View>
       </ScrollView>
     </View>
