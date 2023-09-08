@@ -6,17 +6,15 @@ BiletApp, React Native kullanılarak geliştirilmiş bir bilet uygulamasıdır. 
 - API url : (https://bilet-backend.vercel.app/api/products)
 - API kodları (https://github.com/Harhat18/Bilet_Backend)
 - Uygulama videosu (https://drive.google.com/file/d/104oNRvuub25xCINKDIHiqrsXpYgg_S-2/view?usp=sharing)
+![WhatsApp Image 2023-09-06 at 14 41 36](https://github.com/Harhat18/BiletApp/assets/111196660/9f48c452-0dc1-4f79-9abb-dea132c2bea1)
 
-![WhatsApp Image 2023-09-06 at 14 41 36](https://github.com/Harhat18/BiletApp_v2/assets/111196660/9a1ba13b-93ba-4b33-b8d1-a02f0f140d35)
-![Simulator Screenshot - iPhone SE (1)](https://github.com/Harhat18/BiletApp_v2/assets/111196660/344b8a7f-54a0-44c4-a3c1-0921790ad43b)
-![Simulator Screenshot - iPhone SE](https://github.com/Harhat18/BiletApp_v2/assets/111196660/f4834adb-6508-4ad1-b238-493dac3dd11a)
-![Simulator Screenshot - iPhone SE (2)](https://github.com/Harhat18/BiletApp_v2/assets/111196660/405ea0e8-3363-4047-b2eb-c5981f8db804)
-![Simulator Screenshot - iPhone SE (3)](https://github.com/Harhat18/BiletApp_v2/assets/111196660/8e4d6db6-90ed-4d7d-a03c-e2d91e10a1b8)
-![Simulator Screenshot - iPhone SE (4)](https://github.com/Harhat18/BiletApp_v2/assets/111196660/0d5675c1-5153-4e26-a129-9d18f0c38528)
-![Simulator Screenshot - iPhone SE (5)](https://github.com/Harhat18/BiletApp_v2/assets/111196660/d7450549-5c76-4868-882c-376e90bfb93f)
-![Simulator Screenshot - iPhone SE (6)](https://github.com/Harhat18/BiletApp_v2/assets/111196660/0b31106d-b6ef-4382-a549-33c9f825d892)
-![Simulator Screenshot - iPhone SE (7)](https://github.com/Harhat18/BiletApp_v2/assets/111196660/0d0d1fd0-831e-488c-a1e0-ee94306c77f7)
-![Simulator Screenshot - iPhone SE (8)](https://github.com/Harhat18/BiletApp_v2/assets/111196660/8e4771e4-26ce-419f-ac0a-bea7c5ab794c)
+
+
+![Simulator Screenshot - iPhone SE (5)](https://github.com/Harhat18/BiletApp/assets/111196660/bb12790e-9bf9-4a81-b832-0658e54ed1f9)
+![Simulator Screenshot - iPhone SE (7)](https://github.com/Harhat18/BiletApp/assets/111196660/43db3842-158d-4d92-b04c-0846a0e9274f)
+![Simulator Screenshot - iPhone SE (8)](https://github.com/Harhat18/BiletApp/assets/111196660/8eb16784-806b-42f0-b49c-2091554e251c)
+
+
 
 - Güçlendirilmiş veri yönetimi için [redux-toolkit] (https://redux-toolkit.js.org/)
 - FontAwesome ve diğer simgeler için [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
