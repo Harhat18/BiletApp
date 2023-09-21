@@ -7,6 +7,7 @@ BiletApp, React Native kullanılarak geliştirilmiş bir bilet uygulamasıdır. 
 - API kodları (https://github.com/Harhat18/Bilet_Backend)
 - Uygulama videosu (https://drive.google.com/file/d/104oNRvuub25xCINKDIHiqrsXpYgg_S-2/view?usp=sharing)
 - Uygulama resimleri (https://drive.google.com/drive/folders/1vZ6VA7Y9PEq2Ms7DDnukOMD0aPF4mh6-?usp=sharing )
+- Postman_colection : https://drive.google.com/file/d/1Z0Q-KzLNg-MNfQ-yvpDllQiWGbG09c8U/view?usp=sharing
 
 ![WhatsApp Image 2023-09-06 at 14 41 36](https://github.com/Harhat18/BiletApp/assets/111196660/1b0e4b9c-fd34-4f10-8592-9bde5219c6c1)
 ![Simulator Screenshot - iPhone SE (1)](https://github.com/Harhat18/BiletApp/assets/111196660/54fa0482-d9a1-4975-b022-62034b3711d1)
