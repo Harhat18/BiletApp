@@ -36,7 +36,7 @@ const FavoritesCarousel = ({navigation}) => {
             }
             containerStyle={styles.imageContainer}
             style={styles.image}
-            parallaxFactor={0.4}
+            parallaxFactor={0}
             {...parallaxProps}
           />
           <View style={styles.titleContainer}>
@@ -59,7 +59,7 @@ const FavoritesCarousel = ({navigation}) => {
         data={entries}
         renderItem={renderItem}
         hasParallaxImages={true}
-        inactiveSlideShift={3}
+        inactiveSlideShift={1}
         autoplay={true}
         autoplayInterval={5000}
         loop={true}

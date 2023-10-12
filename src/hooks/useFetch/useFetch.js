@@ -10,17 +10,26 @@ function useFetch(url) {
     try {
       const {data: responseData} = await axios.get(url);
       setData(responseData);
-      setLoading(false);
+      setError(null);
     } catch (err) {
       setError(err.message);
-      setLoading(false);
     }
+    setLoading(false);
   };
 
   useEffect(() => {
     fetchData();
+
+    const interval = setInterval(() => {
+      fetchData();
+    }, 10000);
+
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
-  return {data, setData, loading, error};
+
+  return {data, loading, error};
 }
 
 export default useFetch;
